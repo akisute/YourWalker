@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cYR-yX-XhG">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <scenes>
+        <!--Count Display View Controller-->
+        <scene sceneID="Gkr-CD-qRH">
+            <objects>
+                <viewController id="cYR-yX-XhG" customClass="CountDisplayViewController" customModule="YourWalker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3jw-Ke-1ib"/>
+                        <viewControllerLayoutGuide type="bottom" id="umm-M9-2cs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fJ8-eQ-Rbf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1n1-Jh-rYS">
+                                <rect key="frame" x="216" y="252" width="168" height="96"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10,000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOu-LL-ipf">
+                                        <rect key="frame" x="0.0" y="0.0" width="168" height="66"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="55"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To Go" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1aZ-eO-7S8">
+                                        <rect key="frame" x="60" y="74" width="48" height="22"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="JOu-LL-ipf" firstAttribute="leading" secondItem="1n1-Jh-rYS" secondAttribute="leading" id="F2Q-CT-5SU"/>
+                                    <constraint firstAttribute="centerX" secondItem="JOu-LL-ipf" secondAttribute="centerX" id="FsU-X9-ctR"/>
+                                    <constraint firstItem="1aZ-eO-7S8" firstAttribute="top" secondItem="JOu-LL-ipf" secondAttribute="bottom" constant="8" id="SsJ-sC-T9t"/>
+                                    <constraint firstAttribute="centerX" secondItem="1aZ-eO-7S8" secondAttribute="centerX" id="b1y-Kb-VK9"/>
+                                    <constraint firstAttribute="trailing" secondItem="JOu-LL-ipf" secondAttribute="trailing" id="jd5-pJ-Kqg"/>
+                                    <constraint firstItem="JOu-LL-ipf" firstAttribute="top" secondItem="1n1-Jh-rYS" secondAttribute="top" id="q06-PC-6kT"/>
+                                    <constraint firstAttribute="bottom" secondItem="1aZ-eO-7S8" secondAttribute="bottom" id="s12-rV-2hX"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HfR-Zj-Tq1">
+                                <rect key="frame" x="521" y="547" width="63" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Settings">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="1n1-Jh-rYS" secondAttribute="centerX" id="glU-c7-Y0I"/>
+                            <constraint firstAttribute="trailing" secondItem="HfR-Zj-Tq1" secondAttribute="trailing" constant="16" id="yaq-Ab-MF9"/>
+                            <constraint firstItem="umm-M9-2cs" firstAttribute="top" secondItem="HfR-Zj-Tq1" secondAttribute="bottom" constant="20" id="zCD-tR-gPB"/>
+                            <constraint firstAttribute="centerY" secondItem="1n1-Jh-rYS" secondAttribute="centerY" id="zkA-Zh-lfF"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="3rN-r3-Fz8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="96R-Df-S3C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="500" y="440"/>
+        </scene>
+    </scenes>
+</document>
