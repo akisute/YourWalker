@@ -31,6 +31,7 @@
 		0E4A942B19F4218000E30357 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4A942A19F4218000E30357 /* HealthStore.swift */; };
 		0EE4AA541A073446006C80B8 /* HistoryDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4AA531A073446006C80B8 /* HistoryDisplayViewController.swift */; };
 		0EE4AA561A073456006C80B8 /* HistoryDisplayViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EE4AA551A073456006C80B8 /* HistoryDisplayViewController.storyboard */; };
+		0EE4AA581A073B63006C80B8 /* StepCountHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4AA571A073B63006C80B8 /* StepCountHistory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		0E920AC019F894A500AF8D15 /* YourWalker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = YourWalker.entitlements; sourceTree = "<group>"; };
 		0EE4AA531A073446006C80B8 /* HistoryDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryDisplayViewController.swift; sourceTree = "<group>"; };
 		0EE4AA551A073456006C80B8 /* HistoryDisplayViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HistoryDisplayViewController.storyboard; sourceTree = "<group>"; };
+		0EE4AA571A073B63006C80B8 /* StepCountHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepCountHistory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 				0E2706BD19F4182B00A2D008 /* CountDisplayViewController.storyboard */,
 				0EE4AA531A073446006C80B8 /* HistoryDisplayViewController.swift */,
 				0EE4AA551A073456006C80B8 /* HistoryDisplayViewController.storyboard */,
+				0EE4AA571A073B63006C80B8 /* StepCountHistory.swift */,
 				0E4A942A19F4218000E30357 /* HealthStore.swift */,
 				0E2706A219F4157200A2D008 /* LaunchScreen.xib */,
 				0E27069D19F4157200A2D008 /* Main.storyboard */,
@@ -342,6 +345,7 @@
 				0E2706BA19F417D500A2D008 /* CountDisplayViewController.swift in Sources */,
 				0E27069A19F4157200A2D008 /* AppDelegate.swift in Sources */,
 				0E0A33E619F8146B00E6AAED /* StateMachine.swift in Sources */,
+				0EE4AA581A073B63006C80B8 /* StepCountHistory.swift in Sources */,
 				0E0A33E719F8146B00E6AAED /* StateRoute.swift in Sources */,
 				0E0A33E819F8146B00E6AAED /* StateRouteChain.swift in Sources */,
 				0E2706BC19F417FB00A2D008 /* RootViewController.swift in Sources */,

@@ -12,8 +12,10 @@ import SwiftTask
 
 typealias HealthStoreBoolTask = Task<Void, Bool, NSError>
 typealias HealthStoreCountTask = Task<Void, Int, NSError>
+typealias HealthStoreStepCountHistoryTask = Task<Void, StepCountHistory, NSError>
+typealias HealthStoreStepCountHistoryListTask = Task<Void, [StepCountHistory], NSError>
 
-class HealthStore: NSObject {
+class HealthStore {
     
     let store: HKHealthStore = HKHealthStore()
     
@@ -23,28 +25,32 @@ class HealthStore: NSObject {
         }
         return Static.instance
     }
-   
-    func findStepCountCumulativeSumToday() -> HealthStoreCountTask {
-        let requestAuthorizationTask = HealthStoreBoolTask(initClosure: { progress, fulfill, reject, configure in
-            let stepCountType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierStepCount)
-            let writeTypes = NSSet(array: [])
-            let readTypes = NSSet(array: [stepCountType])
-            
-            self.store.requestAuthorizationToShareTypes(writeTypes, readTypes: readTypes) {success, error in
-                if error != nil {
-                    reject(error)
+    
+    private var requestAuthorizationTask: HealthStoreBoolTask {
+        get {
+            return HealthStoreBoolTask(initClosure: { progress, fulfill, reject, configure in
+                let stepCountType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierStepCount)
+                let writeTypes = NSSet(array: [])
+                let readTypes = NSSet(array: [stepCountType])
+                
+                self.store.requestAuthorizationToShareTypes(writeTypes, readTypes: readTypes) {success, error in
+                    if error != nil {
+                        reject(error)
+                        return
+                    }
+                    fulfill(success)
                     return
                 }
-                fulfill(success)
-                return
-            }
-        })
-        
+            })
+        }
+    }
+   
+    func findStepCountCumulativeSumToday() -> HealthStoreCountTask {
         let executeQueryTask = HealthStoreCountTask(initClosure: { progress, fulfill, reject, configure in
             let calendar = NSCalendar.currentCalendar()
             let now = NSDate()
-            let components = calendar.components(.YearCalendarUnit | .MonthCalendarUnit | .DayCalendarUnit, fromDate: now)
-            let startDate = calendar.dateFromComponents(components)!
+            let nowComponents = calendar.components(.YearCalendarUnit | .MonthCalendarUnit | .DayCalendarUnit, fromDate: now)
+            let startDate = calendar.dateFromComponents(nowComponents)!
             let endDate = calendar.dateByAddingUnit(.DayCalendarUnit, value: 1, toDate: startDate, options: nil)
             
             let predicate = HKQuery.predicateForSamplesWithStartDate(startDate, endDate: endDate, options: .StrictStartDate)
@@ -84,8 +90,91 @@ class HealthStore: NSObject {
             self.store.executeQuery(query)
         })
         
-        return requestAuthorizationTask.then({(succeeded: Bool) -> HealthStoreCountTask in
+        return self.requestAuthorizationTask.then({(succeeded: Bool) -> HealthStoreCountTask in
             return executeQueryTask
         })
+    }
+    
+    func findStepCountHistory(dates: Int = 14) -> HealthStoreStepCountHistoryListTask {
+        let authenticationTask: Task<Void, Bool, NSError> = Task<Void, Bool, NSError>(initClosure: { progress, fulfill, reject, configure in
+            let stepCountType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierStepCount)
+            let writeTypes = NSSet(array: [])
+            let readTypes = NSSet(array: [stepCountType])
+            
+            self.store.requestAuthorizationToShareTypes(writeTypes, readTypes: readTypes) {success, error in
+                if error != nil {
+                    reject(error)
+                    return
+                }
+                fulfill(success)
+                return
+            }
+        })
+        let allTasks: Task<(completedCount: Int, totalCount: Int), [StepCountHistory], NSError> = authenticationTask.then({(succeeded: Bool) -> Task<(completedCount: Int, totalCount: Int), [StepCountHistory], NSError> in
+            let calendar = NSCalendar.currentCalendar()
+            let now = NSDate()
+            let nowComponents = calendar.components(.YearCalendarUnit | .MonthCalendarUnit | .DayCalendarUnit, fromDate: now)
+            let startDate = calendar.dateFromComponents(nowComponents)!
+            
+            var tasks: [HealthStoreStepCountHistoryTask] = []
+            for i in 0..<dates {
+                let s = calendar.dateByAddingUnit(.DayCalendarUnit, value: i, toDate: startDate, options: nil)
+                let e = calendar.dateByAddingUnit(.DayCalendarUnit, value: i+1, toDate: startDate, options: nil)
+                
+                let predicate = HKQuery.predicateForSamplesWithStartDate(s, endDate: e, options: .StrictStartDate)
+                let sampleType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierStepCount)
+                
+                let task = HealthStoreStepCountHistoryTask(initClosure: { progress, fulfill, reject, configure in
+                    let query = HKStatisticsQuery(quantityType: sampleType, quantitySamplePredicate: predicate, options: .CumulativeSum) { query, result, error in
+                        if error != nil {
+                            reject(error)
+                            return
+                        }
+                        let history = StepCountHistory(statistics: result)
+                        fulfill(history)
+                        return
+                    }
+                })
+                tasks.append(task)
+            }
+            return Task.all(tasks)
+        })
+        let resultTask: HealthStoreStepCountHistoryListTask = allTasks.then({(results: [StepCountHistory]) -> HealthStoreStepCountHistoryListTask in
+            return HealthStoreStepCountHistoryListTask(value: results)
+        })
+        return resultTask
+        /*
+        return self.requestAuthorizationTask.then({(succeeded: Bool?, (error: NSError?, isCancelled: Bool?)?) -> Task<(completedCount: Int, totalCount: Int), [StepCountHistory], NSError> in
+            let calendar = NSCalendar.currentCalendar()
+            let now = NSDate()
+            let nowComponents = calendar.components(.YearCalendarUnit | .MonthCalendarUnit | .DayCalendarUnit, fromDate: now)
+            let startDate = calendar.dateFromComponents(nowComponents)!
+            
+            var tasks: [HealthStoreStepCountHistoryTask] = []
+            for i in 0..<dates {
+                let s = calendar.dateByAddingUnit(.DayCalendarUnit, value: i, toDate: startDate, options: nil)
+                let e = calendar.dateByAddingUnit(.DayCalendarUnit, value: i+1, toDate: startDate, options: nil)
+                
+                let predicate = HKQuery.predicateForSamplesWithStartDate(s, endDate: e, options: .StrictStartDate)
+                let sampleType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierStepCount)
+                
+                let task = HealthStoreStepCountHistoryTask(initClosure: { progress, fulfill, reject, configure in
+                    let query = HKStatisticsQuery(quantityType: sampleType, quantitySamplePredicate: predicate, options: .CumulativeSum) { query, result, error in
+                        if error != nil {
+                            reject(error)
+                            return
+                        }
+                        let history = StepCountHistory(statistics: result)
+                        fulfill(history)
+                        return
+                    }
+                })
+                tasks.append(task)
+            }
+            return Task.all(tasks)
+        }).then({(results: [StepCountHistory]) -> [StepCountHistory] in
+            return results
+        })
+        */
     }
 }
