@@ -88,8 +88,4 @@ class HealthStore: NSObject {
             return executeQueryTask
         })
     }
-    
-    func startObservingPedomatorDataWithinToday() -> Void {
-        
-    }
 }

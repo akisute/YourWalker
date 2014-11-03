@@ -41,25 +41,15 @@
                                     <constraint firstAttribute="bottom" secondItem="1aZ-eO-7S8" secondAttribute="bottom" id="s12-rV-2hX"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HfR-Zj-Tq1">
-                                <rect key="frame" x="521" y="547" width="63" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Settings">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="1n1-Jh-rYS" secondAttribute="centerX" id="glU-c7-Y0I"/>
-                            <constraint firstAttribute="trailing" secondItem="HfR-Zj-Tq1" secondAttribute="trailing" constant="16" id="yaq-Ab-MF9"/>
-                            <constraint firstItem="umm-M9-2cs" firstAttribute="top" secondItem="HfR-Zj-Tq1" secondAttribute="bottom" constant="20" id="zCD-tR-gPB"/>
                             <constraint firstAttribute="centerY" secondItem="1n1-Jh-rYS" secondAttribute="centerY" id="zkA-Zh-lfF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3rN-r3-Fz8"/>
                     <connections>
-                        <outlet property="settingsButton" destination="HfR-Zj-Tq1" id="U6S-7V-Yae"/>
                         <outlet property="stepCountLabel" destination="JOu-LL-ipf" id="mAB-Mc-gb7"/>
                     </connections>
                 </viewController>

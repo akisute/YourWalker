@@ -12,7 +12,6 @@ import HealthKit
 class CountDisplayViewController: UIViewController {
     
     @IBOutlet var stepCountLabel: UILabel!
-    @IBOutlet var settingsButton: UIButton!
     
     let healthStore = HKHealthStore()
     let numberFormatter = NSNumberFormatter()

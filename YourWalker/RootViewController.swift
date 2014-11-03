@@ -10,14 +10,19 @@ import UIKit
 
 class RootViewController: UIViewController {
     
+    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var countDisplayContainer: UIView!
+    @IBOutlet var historyDisplayContainer: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let vc = CountDisplayViewController.instantiateFromNib()
-        self.addChildViewController(vc)
-        vc.didMoveToParentViewController(self)
-        self.view.addSubview(vc.view)
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[view]|", options: nil, metrics: nil, views: ["view": vc.view]))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[view]|", options: nil, metrics: nil, views: ["view": vc.view]))
+        let countDisplayViewController = CountDisplayViewController.instantiateFromNib()
+        self.addChildViewController(countDisplayViewController)
+        countDisplayViewController.didMoveToParentViewController(self)
+        countDisplayViewController.view.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.countDisplayContainer.addSubview(countDisplayViewController.view)
+        self.countDisplayContainer.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[view]|", options: nil, metrics: nil, views: ["view": countDisplayViewController.view]))
+        self.countDisplayContainer.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[view]|", options: nil, metrics: nil, views: ["view": countDisplayViewController.view]))
     }
 
 }

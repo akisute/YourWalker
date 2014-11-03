@@ -15,11 +15,51 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="Kum-9r-ed4">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kpq-CE-OV9" userLabel="View (Count Display)">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbH-uE-mBK" userLabel="View (History Display)">
+                                        <rect key="frame" x="600" y="0.0" width="600" height="600"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" secondItem="rbH-uE-mBK" secondAttribute="height" id="9Xj-Co-MG6"/>
+                                    <constraint firstAttribute="trailing" secondItem="rbH-uE-mBK" secondAttribute="trailing" id="EaB-Jj-XlU"/>
+                                    <constraint firstItem="Kpq-CE-OV9" firstAttribute="height" secondItem="Kum-9r-ed4" secondAttribute="height" id="Vv5-85-dOF"/>
+                                    <constraint firstItem="Kpq-CE-OV9" firstAttribute="leading" secondItem="Kum-9r-ed4" secondAttribute="leading" id="XEQ-08-ost"/>
+                                    <constraint firstAttribute="bottom" secondItem="rbH-uE-mBK" secondAttribute="bottom" id="YG9-bR-wtK"/>
+                                    <constraint firstAttribute="bottom" secondItem="Kpq-CE-OV9" secondAttribute="bottom" id="Zp8-gJ-VbW"/>
+                                    <constraint firstItem="rbH-uE-mBK" firstAttribute="leading" secondItem="Kpq-CE-OV9" secondAttribute="trailing" id="gMn-8S-6l6"/>
+                                    <constraint firstItem="Kpq-CE-OV9" firstAttribute="width" secondItem="Kum-9r-ed4" secondAttribute="width" id="jnt-wg-lhf"/>
+                                    <constraint firstItem="Kpq-CE-OV9" firstAttribute="top" secondItem="Kum-9r-ed4" secondAttribute="top" id="obr-10-Vmr"/>
+                                    <constraint firstItem="rbH-uE-mBK" firstAttribute="top" secondItem="Kum-9r-ed4" secondAttribute="top" id="ylz-bf-xo2"/>
+                                    <constraint firstAttribute="width" secondItem="rbH-uE-mBK" secondAttribute="width" id="zHx-Ma-cRg"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Kum-9r-ed4" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="BA7-gd-Teh"/>
+                            <constraint firstItem="Kum-9r-ed4" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="FYz-eH-Vgu"/>
+                            <constraint firstAttribute="trailing" secondItem="Kum-9r-ed4" secondAttribute="trailing" id="FhY-vj-gTC"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Kum-9r-ed4" secondAttribute="bottom" id="yK2-jZ-4af"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="countDisplayContainer" destination="Kpq-CE-OV9" id="9UQ-Rq-iH7"/>
+                        <outlet property="historyDisplayContainer" destination="rbH-uE-mBK" id="ye5-eF-Pe6"/>
+                        <outlet property="scrollView" destination="Kum-9r-ed4" id="Tdm-0L-Su6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="580" y="521"/>
         </scene>
     </scenes>
 </document>
