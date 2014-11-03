@@ -1,0 +1,6 @@
+[submodule "Vendor/SwiftState"]
+	path = Vendor/SwiftState
+	url = git@github.com:ReactKit/SwiftState.git
+[submodule "Vendor/SwiftTask"]
+	path = Vendor/SwiftTask
+	url = git@github.com:ReactKit/SwiftTask.git

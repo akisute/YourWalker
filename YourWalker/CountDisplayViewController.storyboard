@@ -58,6 +58,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3rN-r3-Fz8"/>
+                    <connections>
+                        <outlet property="settingsButton" destination="HfR-Zj-Tq1" id="U6S-7V-Yae"/>
+                        <outlet property="stepCountLabel" destination="JOu-LL-ipf" id="mAB-Mc-gb7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="96R-Df-S3C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

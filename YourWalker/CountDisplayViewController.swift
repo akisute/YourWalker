@@ -7,12 +7,39 @@
 //
 
 import UIKit
+import HealthKit
 
 class CountDisplayViewController: UIViewController {
+    
+    @IBOutlet var stepCountLabel: UILabel!
+    @IBOutlet var settingsButton: UIButton!
+    
+    let healthStore = HKHealthStore()
+    let numberFormatter = NSNumberFormatter()
     
     class func instantiateFromNib() -> CountDisplayViewController {
         let storyboard = UIStoryboard(name: "CountDisplayViewController", bundle: nil)
         return storyboard.instantiateInitialViewController() as CountDisplayViewController
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.numberFormatter.locale = NSLocale(localeIdentifier: "en_US")
+        self.numberFormatter.numberStyle = .DecimalStyle
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        HealthStore.sharedInstance.findStepCountCumulativeSumToday().then({[unowned self] (stepCount: Int) -> Void in
+            let text = self.numberFormatter.stringFromNumber(10000 - stepCount)
+            dispatch_async(dispatch_get_main_queue(), {
+                self.stepCountLabel.text = text
+            })
+        })
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
     }
 
 }
