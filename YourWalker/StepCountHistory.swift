@@ -14,9 +14,16 @@ class StepCountHistory {
     let startDate: NSDate
     let endDate: NSDate
     
-    init(statistics: HKStatistics) {
-        self.stepCount = Int(statistics.sumQuantity().doubleValueForUnit(HKUnit.countUnit()))
-        self.startDate = statistics.startDate
-        self.endDate = statistics.endDate
+    init?(statistics: HKStatistics) {
+        if let sum = statistics.sumQuantity() {
+            self.stepCount = Int(statistics.sumQuantity().doubleValueForUnit(HKUnit.countUnit()))
+            self.startDate = statistics.startDate
+            self.endDate = statistics.endDate
+        } else {
+            self.stepCount = 0
+            self.startDate = NSDate.distantPast() as NSDate
+            self.endDate = NSDate.distantFuture() as NSDate
+            return nil
+        }
     }
 }

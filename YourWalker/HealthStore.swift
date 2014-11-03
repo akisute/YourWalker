@@ -118,8 +118,9 @@ class HealthStore {
             
             var tasks: [HealthStoreStepCountHistoryTask] = []
             for i in 0..<dates {
-                let s = calendar.dateByAddingUnit(.DayCalendarUnit, value: i, toDate: startDate, options: nil)
-                let e = calendar.dateByAddingUnit(.DayCalendarUnit, value: i+1, toDate: startDate, options: nil)
+                let d = i + 1 - dates
+                let s = calendar.dateByAddingUnit(.DayCalendarUnit, value: d, toDate: startDate, options: nil)
+                let e = calendar.dateByAddingUnit(.DayCalendarUnit, value: d+1, toDate: startDate, options: nil)
                 
                 let predicate = HKQuery.predicateForSamplesWithStartDate(s, endDate: e, options: .StrictStartDate)
                 let sampleType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierStepCount)
@@ -130,16 +131,22 @@ class HealthStore {
                             reject(error)
                             return
                         }
-                        let history = StepCountHistory(statistics: result)
-                        fulfill(history)
-                        return
+                        if let history = StepCountHistory(statistics: result) {
+                            fulfill(history)
+                            return
+                        } else {
+                            reject(NSError(domain: "", code: 0, userInfo: nil))
+                            return
+                        }
                     }
+                    self.store.executeQuery(query)
                 })
                 tasks.append(task)
             }
-            return Task.all(tasks)
+            return Task.some(tasks)
         })
         let resultTask: HealthStoreStepCountHistoryListTask = allTasks.then({(results: [StepCountHistory]) -> HealthStoreStepCountHistoryListTask in
+            // TODO: sort results by startDate
             return HealthStoreStepCountHistoryListTask(value: results)
         })
         return resultTask
