@@ -16,9 +16,9 @@ class CountDisplayViewController: UIViewController {
     let healthStore = HKHealthStore()
     let numberFormatter = NSNumberFormatter()
     
-    class func instantiateFromNib() -> CountDisplayViewController {
+    class func instantiateFromStoryboard() -> UIViewController {
         let storyboard = UIStoryboard(name: "CountDisplayViewController", bundle: nil)
-        return storyboard.instantiateInitialViewController() as CountDisplayViewController
+        return storyboard.instantiateInitialViewController() as UIViewController
     }
     
     override func viewDidLoad() {

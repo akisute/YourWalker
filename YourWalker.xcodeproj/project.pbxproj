@@ -29,6 +29,8 @@
 		0E2706BE19F4182B00A2D008 /* CountDisplayViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E2706BD19F4182B00A2D008 /* CountDisplayViewController.storyboard */; };
 		0E4A942919F41E6700E30357 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E4A942819F41E6700E30357 /* HealthKit.framework */; };
 		0E4A942B19F4218000E30357 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4A942A19F4218000E30357 /* HealthStore.swift */; };
+		0EE4AA541A073446006C80B8 /* HistoryDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4AA531A073446006C80B8 /* HistoryDisplayViewController.swift */; };
+		0EE4AA561A073456006C80B8 /* HistoryDisplayViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EE4AA551A073456006C80B8 /* HistoryDisplayViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		0E4A942819F41E6700E30357 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		0E4A942A19F4218000E30357 /* HealthStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
 		0E920AC019F894A500AF8D15 /* YourWalker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = YourWalker.entitlements; sourceTree = "<group>"; };
+		0EE4AA531A073446006C80B8 /* HistoryDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryDisplayViewController.swift; sourceTree = "<group>"; };
+		0EE4AA551A073456006C80B8 /* HistoryDisplayViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HistoryDisplayViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +176,8 @@
 				0E2706BB19F417FB00A2D008 /* RootViewController.swift */,
 				0E2706B919F417D500A2D008 /* CountDisplayViewController.swift */,
 				0E2706BD19F4182B00A2D008 /* CountDisplayViewController.storyboard */,
+				0EE4AA531A073446006C80B8 /* HistoryDisplayViewController.swift */,
+				0EE4AA551A073456006C80B8 /* HistoryDisplayViewController.storyboard */,
 				0E4A942A19F4218000E30357 /* HealthStore.swift */,
 				0E2706A219F4157200A2D008 /* LaunchScreen.xib */,
 				0E27069D19F4157200A2D008 /* Main.storyboard */,
@@ -305,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E0A33E419F8146B00E6AAED /* Info.plist in Resources */,
+				0EE4AA561A073456006C80B8 /* HistoryDisplayViewController.storyboard in Resources */,
 				0E27069F19F4157200A2D008 /* Main.storyboard in Resources */,
 				0E2706A419F4157200A2D008 /* LaunchScreen.xib in Resources */,
 				0E0A340019F8146B00E6AAED /* Info.plist in Resources */,
@@ -339,6 +346,7 @@
 				0E0A33E819F8146B00E6AAED /* StateRouteChain.swift in Sources */,
 				0E2706BC19F417FB00A2D008 /* RootViewController.swift in Sources */,
 				0E0A33EB19F8146B00E6AAED /* StateType.swift in Sources */,
+				0EE4AA541A073446006C80B8 /* HistoryDisplayViewController.swift in Sources */,
 				0E4A942B19F4218000E30357 /* HealthStore.swift in Sources */,
 				0E0A33E519F8146B00E6AAED /* StateEventType.swift in Sources */,
 			);

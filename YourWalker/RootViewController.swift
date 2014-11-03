@@ -16,13 +16,21 @@ class RootViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let countDisplayViewController = CountDisplayViewController.instantiateFromNib()
+        
+        let countDisplayViewController = CountDisplayViewController.instantiateFromStoryboard()
         self.addChildViewController(countDisplayViewController)
         countDisplayViewController.didMoveToParentViewController(self)
         countDisplayViewController.view.setTranslatesAutoresizingMaskIntoConstraints(false)
         self.countDisplayContainer.addSubview(countDisplayViewController.view)
         self.countDisplayContainer.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[view]|", options: nil, metrics: nil, views: ["view": countDisplayViewController.view]))
         self.countDisplayContainer.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[view]|", options: nil, metrics: nil, views: ["view": countDisplayViewController.view]))
+        
+        let historyDisplayViewController = HistoryDisplayViewController.instantiateFromStoryboard()
+        self.addChildViewController(historyDisplayViewController)
+        historyDisplayViewController.didMoveToParentViewController(self)
+        historyDisplayViewController.view.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.historyDisplayContainer.addSubview(historyDisplayViewController.view)
+        self.historyDisplayContainer.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[view]|", options: nil, metrics: nil, views: ["view": historyDisplayViewController.view]))
+        self.historyDisplayContainer.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[view]|", options: nil, metrics: nil, views: ["view": historyDisplayViewController.view]))
     }
-
 }
