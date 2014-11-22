@@ -17,10 +17,10 @@
 		0E2706BE19F4182B00A2D008 /* CountDisplayViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E2706BD19F4182B00A2D008 /* CountDisplayViewController.storyboard */; };
 		0E4A942919F41E6700E30357 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E4A942819F41E6700E30357 /* HealthKit.framework */; };
 		0E4A942B19F4218000E30357 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4A942A19F4218000E30357 /* HealthStore.swift */; };
-		0E8A84C31A2082A0004045AB /* SwiftState.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA508B91A207E4200A65D56 /* SwiftState.framework */; };
-		0E8A84C41A2082A0004045AB /* SwiftState.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA508B91A207E4200A65D56 /* SwiftState.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0EA508B61A207C7500A65D56 /* SwiftTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA508B41A20704F00A65D56 /* SwiftTask.framework */; };
-		0EA508BA1A207E4200A65D56 /* SwiftState.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA508B91A207E4200A65D56 /* SwiftState.framework */; };
+		0E8A84CC1A208A4E004045AB /* SwiftState.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E8A84C81A208A24004045AB /* SwiftState.framework */; };
+		0E8A84CD1A208A4E004045AB /* SwiftState.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0E8A84C81A208A24004045AB /* SwiftState.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0E8A84CF1A208A50004045AB /* SwiftTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E8A84C91A208A24004045AB /* SwiftTask.framework */; };
+		0E8A84D01A208A50004045AB /* SwiftTask.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0E8A84C91A208A24004045AB /* SwiftTask.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0EE4AA541A073446006C80B8 /* HistoryDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4AA531A073446006C80B8 /* HistoryDisplayViewController.swift */; };
 		0EE4AA561A073456006C80B8 /* HistoryDisplayViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EE4AA551A073456006C80B8 /* HistoryDisplayViewController.storyboard */; };
 		0EE4AA581A073B63006C80B8 /* StepCountHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4AA571A073B63006C80B8 /* StepCountHistory.swift */; };
@@ -37,13 +37,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		0E8A84C51A2082A0004045AB /* Embed Frameworks */ = {
+		0E8A84CE1A208A4E004045AB /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0E8A84C41A2082A0004045AB /* SwiftState.framework in Embed Frameworks */,
+				0E8A84CD1A208A4E004045AB /* SwiftState.framework in Embed Frameworks */,
+				0E8A84D01A208A50004045AB /* SwiftTask.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -65,9 +66,9 @@
 		0E2706BD19F4182B00A2D008 /* CountDisplayViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CountDisplayViewController.storyboard; sourceTree = "<group>"; };
 		0E4A942819F41E6700E30357 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		0E4A942A19F4218000E30357 /* HealthStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
+		0E8A84C81A208A24004045AB /* SwiftState.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftState.framework; sourceTree = "<group>"; };
+		0E8A84C91A208A24004045AB /* SwiftTask.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftTask.framework; sourceTree = "<group>"; };
 		0E920AC019F894A500AF8D15 /* YourWalker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = YourWalker.entitlements; sourceTree = "<group>"; };
-		0EA508B41A20704F00A65D56 /* SwiftTask.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftTask.framework; path = "../../../Library/Developer/Xcode/DerivedData/YourWalker-dpmbrasvusgqvjfmsmrrnhzhzfxl/Build/Products/Debug/SwiftTask.framework"; sourceTree = "<group>"; };
-		0EA508B91A207E4200A65D56 /* SwiftState.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftState.framework; path = "../../../Library/Developer/Xcode/DerivedData/YourWalker-dpmbrasvusgqvjfmsmrrnhzhzfxl/Build/Products/Debug/SwiftState.framework"; sourceTree = "<group>"; };
 		0EE4AA531A073446006C80B8 /* HistoryDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryDisplayViewController.swift; sourceTree = "<group>"; };
 		0EE4AA551A073456006C80B8 /* HistoryDisplayViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HistoryDisplayViewController.storyboard; sourceTree = "<group>"; };
 		0EE4AA571A073B63006C80B8 /* StepCountHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepCountHistory.swift; sourceTree = "<group>"; };
@@ -79,9 +80,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E4A942919F41E6700E30357 /* HealthKit.framework in Frameworks */,
-				0EA508BA1A207E4200A65D56 /* SwiftState.framework in Frameworks */,
-				0E8A84C31A2082A0004045AB /* SwiftState.framework in Frameworks */,
-				0EA508B61A207C7500A65D56 /* SwiftTask.framework in Frameworks */,
+				0E8A84CC1A208A4E004045AB /* SwiftState.framework in Frameworks */,
+				0E8A84CF1A208A50004045AB /* SwiftTask.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +100,7 @@
 			children = (
 				0E27069619F4157200A2D008 /* YourWalker */,
 				0E2706AC19F4157200A2D008 /* YourWalkerTests */,
+				0E8A84C71A208A24004045AB /* Carthage.build */,
 				0E27069519F4157200A2D008 /* Products */,
 				AFF88857C4CA94FAC37758DD /* Frameworks */,
 			);
@@ -159,11 +160,18 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0E8A84C71A208A24004045AB /* Carthage.build */ = {
+			isa = PBXGroup;
+			children = (
+				0E8A84C81A208A24004045AB /* SwiftState.framework */,
+				0E8A84C91A208A24004045AB /* SwiftTask.framework */,
+			);
+			path = Carthage.build;
+			sourceTree = "<group>";
+		};
 		AFF88857C4CA94FAC37758DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0EA508B91A207E4200A65D56 /* SwiftState.framework */,
-				0EA508B41A20704F00A65D56 /* SwiftTask.framework */,
 				0E4A942819F41E6700E30357 /* HealthKit.framework */,
 			);
 			name = Frameworks;
@@ -179,7 +187,7 @@
 				0E27069019F4157200A2D008 /* Sources */,
 				0E27069119F4157200A2D008 /* Frameworks */,
 				0E27069219F4157200A2D008 /* Resources */,
-				0E8A84C51A2082A0004045AB /* Embed Frameworks */,
+				0E8A84CE1A208A4E004045AB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -415,6 +423,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/YourWalker-dpmbrasvusgqvjfmsmrrnhzhzfxl/Build/Products/Debug",
+					"$(PROJECT_DIR)/Carthage.build",
 				);
 				INFOPLIST_FILE = YourWalker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -433,6 +442,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/YourWalker-dpmbrasvusgqvjfmsmrrnhzhzfxl/Build/Products/Debug",
+					"$(PROJECT_DIR)/Carthage.build",
 				);
 				INFOPLIST_FILE = YourWalker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

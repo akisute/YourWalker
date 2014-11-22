@@ -1,0 +1,10 @@
+framework module SwiftState {
+  umbrella header "SwiftState.h"
+
+  export *
+  module * { export * }
+}
+
+module SwiftState.Swift {
+    header "SwiftState-Swift.h"
+}

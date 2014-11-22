@@ -21,3 +21,7 @@ DerivedData
 Pods
 Podfile.lock
 *.xcworkspace
+
+#Carthage
+Carthage.checkout
+
