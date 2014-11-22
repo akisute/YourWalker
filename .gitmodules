@@ -1,9 +1,9 @@
 [submodule "Vendor/SwiftState"]
 	path = Vendor/SwiftState
-	url = git@github.com:ReactKit/SwiftState.git
+	url = https://github.com/ReactKit/SwiftState.git
 	ignore = dirty
 [submodule "Vendor/SwiftTask"]
 	path = Vendor/SwiftTask
-	url = git@github.com:ReactKit/SwiftTask.git
+	url = https://github.com/ReactKit/SwiftTask.git
 	ignore = dirty
 

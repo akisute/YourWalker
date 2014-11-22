@@ -29,7 +29,7 @@ class CountDisplayViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        HealthStore.sharedInstance.findStepCountCumulativeSumToday().then({[unowned self] (stepCount: Int) -> Void in
+        HealthStore.sharedInstance.findStepCountCumulativeSumToday().success({[unowned self] (stepCount: Int) -> (Void) in
             let text = self.numberFormatter.stringFromNumber(10000 - stepCount)
             dispatch_async(dispatch_get_main_queue(), {
                 self.stepCountLabel.text = text

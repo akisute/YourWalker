@@ -7,18 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E0A33E319F8146B00E6AAED /* HierarchicalStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0A33A719F8146B00E6AAED /* HierarchicalStateMachine.swift */; };
-		0E0A33E419F8146B00E6AAED /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0E0A33A819F8146B00E6AAED /* Info.plist */; };
-		0E0A33E519F8146B00E6AAED /* StateEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0A33A919F8146B00E6AAED /* StateEventType.swift */; };
-		0E0A33E619F8146B00E6AAED /* StateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0A33AA19F8146B00E6AAED /* StateMachine.swift */; };
-		0E0A33E719F8146B00E6AAED /* StateRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0A33AB19F8146B00E6AAED /* StateRoute.swift */; };
-		0E0A33E819F8146B00E6AAED /* StateRouteChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0A33AC19F8146B00E6AAED /* StateRouteChain.swift */; };
-		0E0A33E919F8146B00E6AAED /* StateTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0A33AD19F8146B00E6AAED /* StateTransition.swift */; };
-		0E0A33EA19F8146B00E6AAED /* StateTransitionChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0A33AE19F8146B00E6AAED /* StateTransitionChain.swift */; };
-		0E0A33EB19F8146B00E6AAED /* StateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0A33AF19F8146B00E6AAED /* StateType.swift */; };
-		0E0A33EC19F8146B00E6AAED /* String+SwiftState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0A33B019F8146B00E6AAED /* String+SwiftState.swift */; };
-		0E0A340019F8146B00E6AAED /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0E0A33CC19F8146B00E6AAED /* Info.plist */; };
-		0E0A340119F8146B00E6AAED /* SwiftTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0A33CE19F8146B00E6AAED /* SwiftTask.swift */; };
 		0E27069A19F4157200A2D008 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E27069919F4157200A2D008 /* AppDelegate.swift */; };
 		0E27069F19F4157200A2D008 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E27069D19F4157200A2D008 /* Main.storyboard */; };
 		0E2706A119F4157200A2D008 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E2706A019F4157200A2D008 /* Images.xcassets */; };
@@ -29,6 +17,10 @@
 		0E2706BE19F4182B00A2D008 /* CountDisplayViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E2706BD19F4182B00A2D008 /* CountDisplayViewController.storyboard */; };
 		0E4A942919F41E6700E30357 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E4A942819F41E6700E30357 /* HealthKit.framework */; };
 		0E4A942B19F4218000E30357 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4A942A19F4218000E30357 /* HealthStore.swift */; };
+		0E8A84C31A2082A0004045AB /* SwiftState.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA508B91A207E4200A65D56 /* SwiftState.framework */; };
+		0E8A84C41A2082A0004045AB /* SwiftState.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA508B91A207E4200A65D56 /* SwiftState.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0EA508B61A207C7500A65D56 /* SwiftTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA508B41A20704F00A65D56 /* SwiftTask.framework */; };
+		0EA508BA1A207E4200A65D56 /* SwiftState.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA508B91A207E4200A65D56 /* SwiftState.framework */; };
 		0EE4AA541A073446006C80B8 /* HistoryDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4AA531A073446006C80B8 /* HistoryDisplayViewController.swift */; };
 		0EE4AA561A073456006C80B8 /* HistoryDisplayViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EE4AA551A073456006C80B8 /* HistoryDisplayViewController.storyboard */; };
 		0EE4AA581A073B63006C80B8 /* StepCountHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4AA571A073B63006C80B8 /* StepCountHistory.swift */; };
@@ -44,21 +36,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		0E8A84C51A2082A0004045AB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0E8A84C41A2082A0004045AB /* SwiftState.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		0E0A33A719F8146B00E6AAED /* HierarchicalStateMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HierarchicalStateMachine.swift; sourceTree = "<group>"; };
-		0E0A33A819F8146B00E6AAED /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0E0A33A919F8146B00E6AAED /* StateEventType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateEventType.swift; sourceTree = "<group>"; };
-		0E0A33AA19F8146B00E6AAED /* StateMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateMachine.swift; sourceTree = "<group>"; };
-		0E0A33AB19F8146B00E6AAED /* StateRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateRoute.swift; sourceTree = "<group>"; };
-		0E0A33AC19F8146B00E6AAED /* StateRouteChain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateRouteChain.swift; sourceTree = "<group>"; };
-		0E0A33AD19F8146B00E6AAED /* StateTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateTransition.swift; sourceTree = "<group>"; };
-		0E0A33AE19F8146B00E6AAED /* StateTransitionChain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateTransitionChain.swift; sourceTree = "<group>"; };
-		0E0A33AF19F8146B00E6AAED /* StateType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateType.swift; sourceTree = "<group>"; };
-		0E0A33B019F8146B00E6AAED /* String+SwiftState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+SwiftState.swift"; sourceTree = "<group>"; };
-		0E0A33B119F8146B00E6AAED /* SwiftState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftState.h; sourceTree = "<group>"; };
-		0E0A33CC19F8146B00E6AAED /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0E0A33CD19F8146B00E6AAED /* SwiftTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftTask.h; sourceTree = "<group>"; };
-		0E0A33CE19F8146B00E6AAED /* SwiftTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftTask.swift; sourceTree = "<group>"; };
 		0E27069419F4157200A2D008 /* YourWalker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YourWalker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E27069819F4157200A2D008 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E27069919F4157200A2D008 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +66,8 @@
 		0E4A942819F41E6700E30357 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		0E4A942A19F4218000E30357 /* HealthStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
 		0E920AC019F894A500AF8D15 /* YourWalker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = YourWalker.entitlements; sourceTree = "<group>"; };
+		0EA508B41A20704F00A65D56 /* SwiftTask.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftTask.framework; path = "../../../Library/Developer/Xcode/DerivedData/YourWalker-dpmbrasvusgqvjfmsmrrnhzhzfxl/Build/Products/Debug/SwiftTask.framework"; sourceTree = "<group>"; };
+		0EA508B91A207E4200A65D56 /* SwiftState.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftState.framework; path = "../../../Library/Developer/Xcode/DerivedData/YourWalker-dpmbrasvusgqvjfmsmrrnhzhzfxl/Build/Products/Debug/SwiftState.framework"; sourceTree = "<group>"; };
 		0EE4AA531A073446006C80B8 /* HistoryDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryDisplayViewController.swift; sourceTree = "<group>"; };
 		0EE4AA551A073456006C80B8 /* HistoryDisplayViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HistoryDisplayViewController.storyboard; sourceTree = "<group>"; };
 		0EE4AA571A073B63006C80B8 /* StepCountHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepCountHistory.swift; sourceTree = "<group>"; };
@@ -85,6 +79,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E4A942919F41E6700E30357 /* HealthKit.framework in Frameworks */,
+				0EA508BA1A207E4200A65D56 /* SwiftState.framework in Frameworks */,
+				0E8A84C31A2082A0004045AB /* SwiftState.framework in Frameworks */,
+				0EA508B61A207C7500A65D56 /* SwiftTask.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,66 +95,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0E0A339F19F8146B00E6AAED /* Vendor */ = {
-			isa = PBXGroup;
-			children = (
-				0E0A33A019F8146B00E6AAED /* SwiftState */,
-				0E0A33C419F8146B00E6AAED /* SwiftTask */,
-			);
-			path = Vendor;
-			sourceTree = "<group>";
-		};
-		0E0A33A019F8146B00E6AAED /* SwiftState */ = {
-			isa = PBXGroup;
-			children = (
-				0E0A33A619F8146B00E6AAED /* SwiftState */,
-			);
-			path = SwiftState;
-			sourceTree = "<group>";
-		};
-		0E0A33A619F8146B00E6AAED /* SwiftState */ = {
-			isa = PBXGroup;
-			children = (
-				0E0A33A719F8146B00E6AAED /* HierarchicalStateMachine.swift */,
-				0E0A33A819F8146B00E6AAED /* Info.plist */,
-				0E0A33A919F8146B00E6AAED /* StateEventType.swift */,
-				0E0A33AA19F8146B00E6AAED /* StateMachine.swift */,
-				0E0A33AB19F8146B00E6AAED /* StateRoute.swift */,
-				0E0A33AC19F8146B00E6AAED /* StateRouteChain.swift */,
-				0E0A33AD19F8146B00E6AAED /* StateTransition.swift */,
-				0E0A33AE19F8146B00E6AAED /* StateTransitionChain.swift */,
-				0E0A33AF19F8146B00E6AAED /* StateType.swift */,
-				0E0A33B019F8146B00E6AAED /* String+SwiftState.swift */,
-				0E0A33B119F8146B00E6AAED /* SwiftState.h */,
-			);
-			path = SwiftState;
-			sourceTree = "<group>";
-		};
-		0E0A33C419F8146B00E6AAED /* SwiftTask */ = {
-			isa = PBXGroup;
-			children = (
-				0E0A33CB19F8146B00E6AAED /* SwiftTask */,
-			);
-			path = SwiftTask;
-			sourceTree = "<group>";
-		};
-		0E0A33CB19F8146B00E6AAED /* SwiftTask */ = {
-			isa = PBXGroup;
-			children = (
-				0E0A33CC19F8146B00E6AAED /* Info.plist */,
-				0E0A33CD19F8146B00E6AAED /* SwiftTask.h */,
-				0E0A33CE19F8146B00E6AAED /* SwiftTask.swift */,
-			);
-			path = SwiftTask;
-			sourceTree = "<group>";
-		};
 		0E27068B19F4157200A2D008 = {
 			isa = PBXGroup;
 			children = (
 				0E27069619F4157200A2D008 /* YourWalker */,
 				0E2706AC19F4157200A2D008 /* YourWalkerTests */,
 				0E27069519F4157200A2D008 /* Products */,
-				0E0A339F19F8146B00E6AAED /* Vendor */,
 				AFF88857C4CA94FAC37758DD /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -219,6 +162,8 @@
 		AFF88857C4CA94FAC37758DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0EA508B91A207E4200A65D56 /* SwiftState.framework */,
+				0EA508B41A20704F00A65D56 /* SwiftTask.framework */,
 				0E4A942819F41E6700E30357 /* HealthKit.framework */,
 			);
 			name = Frameworks;
@@ -234,6 +179,7 @@
 				0E27069019F4157200A2D008 /* Sources */,
 				0E27069119F4157200A2D008 /* Frameworks */,
 				0E27069219F4157200A2D008 /* Resources */,
+				0E8A84C51A2082A0004045AB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -313,11 +259,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E0A33E419F8146B00E6AAED /* Info.plist in Resources */,
 				0EE4AA561A073456006C80B8 /* HistoryDisplayViewController.storyboard in Resources */,
 				0E27069F19F4157200A2D008 /* Main.storyboard in Resources */,
 				0E2706A419F4157200A2D008 /* LaunchScreen.xib in Resources */,
-				0E0A340019F8146B00E6AAED /* Info.plist in Resources */,
 				0E2706BE19F4182B00A2D008 /* CountDisplayViewController.storyboard in Resources */,
 				0E2706A119F4157200A2D008 /* Images.xcassets in Resources */,
 			);
@@ -337,22 +281,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E0A33EA19F8146B00E6AAED /* StateTransitionChain.swift in Sources */,
-				0E0A33E919F8146B00E6AAED /* StateTransition.swift in Sources */,
-				0E0A33EC19F8146B00E6AAED /* String+SwiftState.swift in Sources */,
-				0E0A340119F8146B00E6AAED /* SwiftTask.swift in Sources */,
-				0E0A33E319F8146B00E6AAED /* HierarchicalStateMachine.swift in Sources */,
 				0E2706BA19F417D500A2D008 /* CountDisplayViewController.swift in Sources */,
 				0E27069A19F4157200A2D008 /* AppDelegate.swift in Sources */,
-				0E0A33E619F8146B00E6AAED /* StateMachine.swift in Sources */,
 				0EE4AA581A073B63006C80B8 /* StepCountHistory.swift in Sources */,
-				0E0A33E719F8146B00E6AAED /* StateRoute.swift in Sources */,
-				0E0A33E819F8146B00E6AAED /* StateRouteChain.swift in Sources */,
 				0E2706BC19F417FB00A2D008 /* RootViewController.swift in Sources */,
-				0E0A33EB19F8146B00E6AAED /* StateType.swift in Sources */,
 				0EE4AA541A073446006C80B8 /* HistoryDisplayViewController.swift in Sources */,
 				0E4A942B19F4218000E30357 /* HealthStore.swift in Sources */,
-				0E0A33E519F8146B00E6AAED /* StateEventType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,6 +412,10 @@
 				CODE_SIGN_ENTITLEMENTS = YourWalker/YourWalker.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/YourWalker-dpmbrasvusgqvjfmsmrrnhzhzfxl/Build/Products/Debug",
+				);
 				INFOPLIST_FILE = YourWalker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -492,6 +430,10 @@
 				CODE_SIGN_ENTITLEMENTS = YourWalker/YourWalker.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/YourWalker-dpmbrasvusgqvjfmsmrrnhzhzfxl/Build/Products/Debug",
+				);
 				INFOPLIST_FILE = YourWalker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

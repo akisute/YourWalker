@@ -18,8 +18,7 @@ class HistoryDisplayViewController: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        let loadingTask: HealthStoreStepCountHistoryListTask = HealthStore.sharedInstance.findStepCountHistory()
-        loadingTask.then({[unowned self](results: [StepCountHistory]) -> (Void) in
+        HealthStore.sharedInstance.findStepCountHistory().success({[unowned self] (results: [StepCountHistory]) -> (Void) in
             dispatch_async(dispatch_get_main_queue(), {
                 self.histories = results
                 self.tableView.reloadData()
@@ -44,7 +43,7 @@ class HistoryDisplayViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
         if let history = self.stepCountHistoryForIndexPath(indexPath) {
-            cell.textLabel.text = "\(history.stepCount)"
+            cell.textLabel?.text = "\(history.stepCount)"
         }
         return cell
     }
