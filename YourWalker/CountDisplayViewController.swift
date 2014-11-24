@@ -12,9 +12,12 @@ import HealthKit
 class CountDisplayViewController: UIViewController {
     
     @IBOutlet var stepCountLabel: UILabel!
+    @IBOutlet var stepCountDescriptionLabel: UILabel!
+    @IBOutlet var stepCountLoadingActivityIndicator: UIActivityIndicatorView!
     
     let healthStore = HKHealthStore()
     let numberFormatter = NSNumberFormatter()
+    var currentStepCount: Int = -1
     
     class func instantiateFromStoryboard() -> UIViewController {
         let storyboard = UIStoryboard(name: "CountDisplayViewController", bundle: nil)
@@ -29,10 +32,19 @@ class CountDisplayViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        HealthStore.sharedInstance.findStepCountCumulativeSumToday().success({[unowned self] (stepCount: Int) -> (Void) in
-            let text = self.numberFormatter.stringFromNumber(10000 - stepCount)
+        
+        self.updateStepCountLabels(loading: true)
+        HealthStore.sharedInstance.findStepCountCumulativeSumToday().success({[unowned self] (stepCount: Int) -> Void in
+            self.currentStepCount = stepCount
             dispatch_async(dispatch_get_main_queue(), {
-                self.stepCountLabel.text = text
+                self.updateStepCountLabels(loading: false)
+            })
+        }).failure({[unowned self] (error: NSError?, isCancelled: Bool) -> Void in
+            if let e = error {
+                NSLog("%@", e)
+            }
+            dispatch_async(dispatch_get_main_queue(), {
+                self.updateStepCountLabels(loading: false)
             })
         })
     }
@@ -41,4 +53,22 @@ class CountDisplayViewController: UIViewController {
         super.viewDidAppear(animated)
     }
 
+    private func updateStepCountLabels(#loading: Bool) {
+        if (self.currentStepCount < 0) {
+            self.stepCountLabel.text = ""
+            self.stepCountLabel.hidden = true
+            self.stepCountDescriptionLabel.hidden = true
+            if (loading) {
+                self.stepCountLoadingActivityIndicator.startAnimating()
+            } else {
+                self.stepCountLoadingActivityIndicator.stopAnimating()
+            }
+        } else {
+            let text = self.numberFormatter.stringFromNumber(10000 - self.currentStepCount)
+            self.stepCountLabel.text = text
+            self.stepCountLabel.hidden = false
+            self.stepCountDescriptionLabel.hidden = false
+            self.stepCountLoadingActivityIndicator.stopAnimating()
+        }
+    }
 }
