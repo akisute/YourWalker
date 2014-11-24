@@ -40,11 +40,13 @@ class HistoryDisplayViewController: UITableViewController {
         }
     }
     
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 44.0
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
-        if let history = self.stepCountHistoryForIndexPath(indexPath) {
-            cell.textLabel?.text = "\(history.stepCount)"
-        }
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as HistoryDisplayViewCell
+        cell.stepCountHistory = self.stepCountHistoryForIndexPath(indexPath)
         return cell
     }
     

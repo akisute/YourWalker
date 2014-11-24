@@ -17,6 +17,8 @@
 		0E2706BE19F4182B00A2D008 /* CountDisplayViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E2706BD19F4182B00A2D008 /* CountDisplayViewController.storyboard */; };
 		0E4A942919F41E6700E30357 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E4A942819F41E6700E30357 /* HealthKit.framework */; };
 		0E4A942B19F4218000E30357 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4A942A19F4218000E30357 /* HealthStore.swift */; };
+		0E5A5E221A2385C7003AC1CF /* HistoryDisplayViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A5E211A2385C7003AC1CF /* HistoryDisplayViewCell.swift */; };
+		0E5A5E241A2388E5003AC1CF /* FormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A5E231A2388E5003AC1CF /* FormatterManager.swift */; };
 		0E8A84CC1A208A4E004045AB /* SwiftState.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E8A84C81A208A24004045AB /* SwiftState.framework */; };
 		0E8A84CD1A208A4E004045AB /* SwiftState.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0E8A84C81A208A24004045AB /* SwiftState.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0E8A84CF1A208A50004045AB /* SwiftTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E8A84C91A208A24004045AB /* SwiftTask.framework */; };
@@ -66,6 +68,8 @@
 		0E2706BD19F4182B00A2D008 /* CountDisplayViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CountDisplayViewController.storyboard; sourceTree = "<group>"; };
 		0E4A942819F41E6700E30357 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		0E4A942A19F4218000E30357 /* HealthStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
+		0E5A5E211A2385C7003AC1CF /* HistoryDisplayViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryDisplayViewCell.swift; sourceTree = "<group>"; };
+		0E5A5E231A2388E5003AC1CF /* FormatterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatterManager.swift; sourceTree = "<group>"; };
 		0E8A84C81A208A24004045AB /* SwiftState.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftState.framework; sourceTree = "<group>"; };
 		0E8A84C91A208A24004045AB /* SwiftTask.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftTask.framework; sourceTree = "<group>"; };
 		0E920AC019F894A500AF8D15 /* YourWalker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = YourWalker.entitlements; sourceTree = "<group>"; };
@@ -123,9 +127,11 @@
 				0E2706B919F417D500A2D008 /* CountDisplayViewController.swift */,
 				0E2706BD19F4182B00A2D008 /* CountDisplayViewController.storyboard */,
 				0EE4AA531A073446006C80B8 /* HistoryDisplayViewController.swift */,
+				0E5A5E211A2385C7003AC1CF /* HistoryDisplayViewCell.swift */,
 				0EE4AA551A073456006C80B8 /* HistoryDisplayViewController.storyboard */,
 				0EE4AA571A073B63006C80B8 /* StepCountHistory.swift */,
 				0E4A942A19F4218000E30357 /* HealthStore.swift */,
+				0E5A5E231A2388E5003AC1CF /* FormatterManager.swift */,
 				0E2706A219F4157200A2D008 /* LaunchScreen.xib */,
 				0E27069D19F4157200A2D008 /* Main.storyboard */,
 				0E2706A019F4157200A2D008 /* Images.xcassets */,
@@ -289,12 +295,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E5A5E241A2388E5003AC1CF /* FormatterManager.swift in Sources */,
 				0E2706BA19F417D500A2D008 /* CountDisplayViewController.swift in Sources */,
 				0E27069A19F4157200A2D008 /* AppDelegate.swift in Sources */,
 				0EE4AA581A073B63006C80B8 /* StepCountHistory.swift in Sources */,
 				0E2706BC19F417FB00A2D008 /* RootViewController.swift in Sources */,
 				0EE4AA541A073446006C80B8 /* HistoryDisplayViewController.swift in Sources */,
 				0E4A942B19F4218000E30357 /* HealthStore.swift in Sources */,
+				0E5A5E221A2385C7003AC1CF /* HistoryDisplayViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
