@@ -15,27 +15,53 @@ class CountDisplayViewController: UIViewController {
     @IBOutlet var stepCountDescriptionLabel: UILabel!
     @IBOutlet var stepCountLoadingActivityIndicator: UIActivityIndicatorView!
     
-    let healthStore = HKHealthStore()
-    let numberFormatter = NSNumberFormatter()
-    var currentStepCount: Int = -1
+    private var currentStepCountToGoal: Int = NSNotFound
     
     class func instantiateFromStoryboard() -> UIViewController {
         let storyboard = UIStoryboard(name: "CountDisplayViewController", bundle: nil)
         return storyboard.instantiateInitialViewController() as UIViewController
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.numberFormatter.locale = NSLocale(localeIdentifier: "en_US")
-        self.numberFormatter.numberStyle = .DecimalStyle
-    }
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.loadStepCount()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"onApplicationWillEnterForegroundNotification", name: UIApplicationWillEnterForegroundNotification, object: nil)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    func onApplicationWillEnterForegroundNotification() {
+        self.loadStepCount()
+    }
+    
+    // MARK: - Private
+
+    private func updateStepCountLabels(#loading: Bool) {
+        if (self.currentStepCountToGoal == NSNotFound) {
+            self.stepCountLabel.text = ""
+            self.stepCountLabel.hidden = true
+            self.stepCountDescriptionLabel.hidden = true
+            if (loading) {
+                self.stepCountLoadingActivityIndicator.startAnimating()
+            } else {
+                self.stepCountLoadingActivityIndicator.stopAnimating()
+            }
+        } else {
+            let text = FormatterManager.sharedInstance.numberFormatter_Decimal.stringFromNumber(self.currentStepCountToGoal)
+            self.stepCountLabel.text = text
+            self.stepCountLabel.hidden = false
+            self.stepCountDescriptionLabel.hidden = false
+            self.stepCountLoadingActivityIndicator.stopAnimating()
+        }
+    }
+    
+    private func loadStepCount() {
         self.updateStepCountLabels(loading: true)
-        HealthStore.sharedInstance.findStepCountCumulativeSumToday().success({[unowned self] (stepCount: Int) -> Void in
-            self.currentStepCount = stepCount
+        HealthStore.sharedInstance.findStepCountCumulativeSumToGoalToday().success({[unowned self] (stepCountToGoal: Int) -> Void in
+            self.currentStepCountToGoal = stepCountToGoal
             dispatch_async(dispatch_get_main_queue(), {
                 self.updateStepCountLabels(loading: false)
             })
@@ -47,28 +73,5 @@ class CountDisplayViewController: UIViewController {
                 self.updateStepCountLabels(loading: false)
             })
         })
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-
-    private func updateStepCountLabels(#loading: Bool) {
-        if (self.currentStepCount < 0) {
-            self.stepCountLabel.text = ""
-            self.stepCountLabel.hidden = true
-            self.stepCountDescriptionLabel.hidden = true
-            if (loading) {
-                self.stepCountLoadingActivityIndicator.startAnimating()
-            } else {
-                self.stepCountLoadingActivityIndicator.stopAnimating()
-            }
-        } else {
-            let text = self.numberFormatter.stringFromNumber(10000 - self.currentStepCount)
-            self.stepCountLabel.text = text
-            self.stepCountLabel.hidden = false
-            self.stepCountDescriptionLabel.hidden = false
-            self.stepCountLoadingActivityIndicator.stopAnimating()
-        }
     }
 }

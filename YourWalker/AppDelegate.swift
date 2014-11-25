@@ -13,5 +13,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+        let settings = UIUserNotificationSettings(forTypes: .Badge, categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+        
+        HealthStore.sharedInstance.startStepCountBackgroundUpdate()
+        HealthStore.sharedInstance.setStepCountBackgroundUpdateHandler({[unowned self] complete, error in
+            if error != nil {
+                self.startUpdatingBadgeCount().then({_, errorInfo in
+                    complete()
+                })
+            } else {
+                complete()
+            }
+        })
+        
+        return true
+    }
+    
+    func applicationDidEnterBackground(application: UIApplication) {
+        let identifier = application.beginBackgroundTaskWithExpirationHandler({})
+        self.startUpdatingBadgeCount().then({_, errorInfo in
+            application.endBackgroundTask(identifier)
+        })
+    }
+    
+    private func startUpdatingBadgeCount() -> HealthStoreTask {
+        return HealthStore.sharedInstance.findStepCountCumulativeSumToGoalToday().success({(stepCountToGoal: Int) -> Void in
+            UIApplication.sharedApplication().applicationIconBadgeNumber = stepCountToGoal
+        })
+    }
 }
 

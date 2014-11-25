@@ -10,7 +10,7 @@ import UIKit
 
 class HistoryDisplayViewController: UITableViewController {
     
-    var histories: [StepCountHistory]?
+    private var histories: [StepCountHistory]?
     
     class func instantiateFromStoryboard() -> UIViewController {
         let storyboard = UIStoryboard(name: "HistoryDisplayViewController", bundle: nil)
@@ -18,12 +18,18 @@ class HistoryDisplayViewController: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        HealthStore.sharedInstance.findStepCountHistory().success({[unowned self] (results: [StepCountHistory]) -> (Void) in
-            dispatch_async(dispatch_get_main_queue(), {
-                self.histories = results
-                self.tableView.reloadData()
-            })
-        })
+        super.viewWillAppear(animated)
+        self.loadStepCount()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"onApplicationWillEnterForegroundNotification", name: UIApplicationWillEnterForegroundNotification, object: nil)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    func onApplicationWillEnterForegroundNotification() {
+        self.loadStepCount()
     }
     
     // MARK: - UITableViewDelegate/DataSource
@@ -58,5 +64,14 @@ class HistoryDisplayViewController: UITableViewController {
         } else {
             return nil
         }
+    }
+    
+    private func loadStepCount() {
+        HealthStore.sharedInstance.findStepCountHistory().success({[unowned self] (results: [StepCountHistory]) -> (Void) in
+            dispatch_async(dispatch_get_main_queue(), {
+                self.histories = results
+                self.tableView.reloadData()
+            })
+        })
     }
 }
