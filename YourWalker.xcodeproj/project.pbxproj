@@ -430,7 +430,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/YourWalker-dpmbrasvusgqvjfmsmrrnhzhzfxl/Build/Products/Debug",
 					"$(PROJECT_DIR)/Carthage.build",
 				);
 				INFOPLIST_FILE = YourWalker/Info.plist;
@@ -449,7 +448,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/YourWalker-dpmbrasvusgqvjfmsmrrnhzhzfxl/Build/Products/Debug",
 					"$(PROJECT_DIR)/Carthage.build",
 				);
 				INFOPLIST_FILE = YourWalker/Info.plist;
