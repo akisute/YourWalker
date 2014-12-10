@@ -47,6 +47,8 @@ class HealthStore {
             })
         }
     }
+    
+    // MARK: - Data Fetching
    
     func findStepCountCumulativeSumToday() -> HealthStoreCountTask {
         let executeQueryTask = HealthStoreCountTask(promiseInitClosure: { fulfill, reject in
@@ -78,6 +80,13 @@ class HealthStore {
 
         return self.requestAuthorizationTask.success({
             return executeQueryTask
+        })
+    }
+    
+    func findStepCountCumulativeSumToGoalToday() -> HealthStoreCountTask {
+        return self.findStepCountCumulativeSumToday().success({(stepCount: Int) -> Int in
+            // TODO: goal should be editable
+            return max(0, 10000 - stepCount)
         })
     }
     
@@ -122,5 +131,72 @@ class HealthStore {
             })
             return HealthStoreStepCountHistoryListTask(value: value)
         })
+    }
+    
+    // MARK: - Background Support
+    
+    func startStepCountBackgroundUpdate() -> HealthStoreTask {
+        let sampleType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierStepCount)
+        return HealthStoreTask(promiseInitClosure: {fulfill, reject in
+            self.store.enableBackgroundDeliveryForType(sampleType, frequency: .Hourly) { success, error in
+                if error != nil {
+                    reject(error)
+                    return
+                }
+                if success {
+                    fulfill()
+                    return
+                } else {
+                    reject(NSError(domain: "", code: 0, userInfo: nil))
+                    return
+                }
+            }
+        })
+    }
+    
+    func stopStepCountBackgroundUpdate() -> HealthStoreTask {
+        let sampleType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierStepCount)
+        return HealthStoreTask(promiseInitClosure: {fulfill, reject in
+            self.store.disableBackgroundDeliveryForType(sampleType) { success, error in
+                if error != nil {
+                    reject(error)
+                    return
+                }
+                if success {
+                    fulfill()
+                    return
+                } else {
+                    reject(NSError(domain: "", code: 0, userInfo: nil))
+                    return
+                }
+            }
+        })
+    }
+    
+    private var stepCountBackgroundUpdateQuery: HKObserverQuery?
+    
+    func setStepCountBackgroundUpdateHandler(updateHandler: ((Void->Void, NSError?) -> Void)?) {
+        if let handler = updateHandler {
+            // start observing background updates
+            let calendar = NSCalendar.currentCalendar()
+            let now = NSDate()
+            let nowComponents = calendar.components(.YearCalendarUnit | .MonthCalendarUnit | .DayCalendarUnit, fromDate: now)
+            let startDate = calendar.dateFromComponents(nowComponents)!
+            let endDate = calendar.dateByAddingUnit(.DayCalendarUnit, value: 1, toDate: startDate, options: nil)
+            
+            let predicate = HKQuery.predicateForSamplesWithStartDate(startDate, endDate: endDate, options: .StrictStartDate)
+            let sampleType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierStepCount)
+            
+            let query = HKObserverQuery(sampleType: sampleType, predicate: predicate, updateHandler: {(query: HKObserverQuery!, complete: HKObserverQueryCompletionHandler!, error: NSError!) -> Void in
+                handler(complete!, error)
+            })
+            
+            self.store.executeQuery(query)
+            self.stepCountBackgroundUpdateQuery = query
+        } else {
+            // stop observing background updates
+            self.store.stopQuery(self.stepCountBackgroundUpdateQuery)
+            self.stepCountBackgroundUpdateQuery = nil
+        }
     }
 }
