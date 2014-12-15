@@ -26,6 +26,7 @@
 		0EE4AA541A073446006C80B8 /* HistoryDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4AA531A073446006C80B8 /* HistoryDisplayViewController.swift */; };
 		0EE4AA561A073456006C80B8 /* HistoryDisplayViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EE4AA551A073456006C80B8 /* HistoryDisplayViewController.storyboard */; };
 		0EE4AA581A073B63006C80B8 /* StepCountHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4AA571A073B63006C80B8 /* StepCountHistory.swift */; };
+		C5C770311A3EDA9400C67A8F /* SwiftASL.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C770301A3EDA9400C67A8F /* SwiftASL.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,8 @@
 		0EE4AA531A073446006C80B8 /* HistoryDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryDisplayViewController.swift; sourceTree = "<group>"; };
 		0EE4AA551A073456006C80B8 /* HistoryDisplayViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HistoryDisplayViewController.storyboard; sourceTree = "<group>"; };
 		0EE4AA571A073B63006C80B8 /* StepCountHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepCountHistory.swift; sourceTree = "<group>"; };
+		C5C770301A3EDA9400C67A8F /* SwiftASL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftASL.swift; sourceTree = "<group>"; };
+		C5C770321A3EDCA200C67A8F /* Objc-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Objc-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +107,7 @@
 			children = (
 				0E27069619F4157200A2D008 /* YourWalker */,
 				0E2706AC19F4157200A2D008 /* YourWalkerTests */,
+				C5C7702E1A3EDA6C00C67A8F /* Vendor */,
 				0E8A84C71A208A24004045AB /* Carthage.build */,
 				0E27069519F4157200A2D008 /* Products */,
 				AFF88857C4CA94FAC37758DD /* Frameworks */,
@@ -145,6 +149,7 @@
 			children = (
 				0E920AC019F894A500AF8D15 /* YourWalker.entitlements */,
 				0E27069819F4157200A2D008 /* Info.plist */,
+				C5C770321A3EDCA200C67A8F /* Objc-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -181,6 +186,22 @@
 				0E4A942819F41E6700E30357 /* HealthKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C5C7702E1A3EDA6C00C67A8F /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				C5C7702F1A3EDA6C00C67A8F /* SwiftASL */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		C5C7702F1A3EDA6C00C67A8F /* SwiftASL */ = {
+			isa = PBXGroup;
+			children = (
+				C5C770301A3EDA9400C67A8F /* SwiftASL.swift */,
+			);
+			path = SwiftASL;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,6 +321,7 @@
 				0E27069A19F4157200A2D008 /* AppDelegate.swift in Sources */,
 				0EE4AA581A073B63006C80B8 /* StepCountHistory.swift in Sources */,
 				0E2706BC19F417FB00A2D008 /* RootViewController.swift in Sources */,
+				C5C770311A3EDA9400C67A8F /* SwiftASL.swift in Sources */,
 				0EE4AA541A073446006C80B8 /* HistoryDisplayViewController.swift in Sources */,
 				0E4A942B19F4218000E30357 /* HealthStore.swift in Sources */,
 				0E5A5E221A2385C7003AC1CF /* HistoryDisplayViewCell.swift in Sources */,
@@ -436,6 +458,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "YourWalker/Objc-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -454,6 +477,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "YourWalker/Objc-Bridging-Header.h";
 			};
 			name = Release;
 		};
