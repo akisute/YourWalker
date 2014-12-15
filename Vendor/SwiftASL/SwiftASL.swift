@@ -20,7 +20,7 @@ private struct ASLKeys {
 }
 
 /// A struct that represents a line of Apple Simple Logger (ASL).
-public struct ASLLine {
+public struct ASLLine : Printable {
     public var pid: Int
     public var timestamp: NSDate
     public var sender: String
@@ -41,7 +41,20 @@ public struct ASLLine {
         self.sender = entry[ASLKeys.sender]!
         self.message = entry[ASLKeys.message]!
     }
+    
+    // MARK: Printable
+    public var description: String {
+        get {
+            return String(format: "%@ %@[%ld]: %@",
+                NSDateFormatter.localizedStringFromDate(self.timestamp, dateStyle: .MediumStyle, timeStyle: .LongStyle),
+                self.sender,
+                self.pid,
+                self.message)
+        }
+    }
 }
+
+// MARK: -
 
 /// Apple Simple Logger (ASL) client. ASL is also known as NSLog.
 /// 
@@ -127,6 +140,7 @@ public class ASL {
     /// @param queue - a dispatch queue that calls the given handler. Default is the main queue.
     /// @param handler - a callback handler.
     public func readlineAsync(queue: dispatch_queue_t? = dispatch_get_main_queue(), handler: (ASLLine) -> (Void)) {
+        // TODO: Implement this
         handler(ASLLine(pid: 1, timestamp: NSDate(), sender: "", message: ""))
     }
 }
