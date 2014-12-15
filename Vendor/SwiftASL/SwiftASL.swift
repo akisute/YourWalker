@@ -13,10 +13,10 @@ import Foundation
 
 /// A private struct that provides constant values.
 private struct ASLKeys {
-    private static let pid = String(format: "%s", ASL_KEY_PID)
-    private static let timestamp = String(format: "%s", ASL_KEY_TIME)
-    private static let sender = String(format: "%s", ASL_KEY_SENDER)
-    private static let message = String(format: "%s", ASL_KEY_MSG)
+    private static let pid = String(format: "%@", ASL_KEY_PID)
+    private static let timestamp = String(format: "%@", ASL_KEY_TIME)
+    private static let sender = String(format: "%@", ASL_KEY_SENDER)
+    private static let message = String(format: "%@", ASL_KEY_MSG)
 }
 
 /// A struct that represents a line of Apple Simple Logger (ASL).
@@ -49,25 +49,28 @@ public struct ASLLine {
 public class ASL {
     
     private var queue: dispatch_queue_t = dispatch_queue_create("com.akisute.SwiftASL.ASL.queue", DISPATCH_QUEUE_CONCURRENT)
-    private var filterSeconds: Int? = nil
+    private var filterSeconds: Int64? = nil
     private var filterSender: String? = nil
     private var filterMessage: String? = nil
     
     /// Adds a filter by seconds from now.
     /// If multiple filters of a same kind is set, the previous filter is overridden.
-    public func filter(seconds _: Int64) -> ASL {
+    public func filter(#seconds: Int64) -> ASL {
+        self.filterSeconds = seconds;
         return self
     }
     
     /// Adds a filter by sender that only passes when a line contains the given `sender`.
     /// If multiple filters of a same kind is set, the previous filter is overridden.
-    public func filter(sender _: String) -> ASL {
+    public func filter(#sender: String) -> ASL {
+        self.filterSender = sender
         return self
     }
     
     /// Adds a filter by message that only passes when a line contains the given `message`.
     /// If multiple filters of a same kind is set, the previous filter is overridden.
-    public func filter(message _: String) -> ASL {
+    public func filter(#message: String) -> ASL {
+        self.filterMessage = message
         return self
     }
     
