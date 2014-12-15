@@ -19,6 +19,10 @@
 		0E4A942B19F4218000E30357 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4A942A19F4218000E30357 /* HealthStore.swift */; };
 		0E5A5E221A2385C7003AC1CF /* HistoryDisplayViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A5E211A2385C7003AC1CF /* HistoryDisplayViewCell.swift */; };
 		0E5A5E241A2388E5003AC1CF /* FormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A5E231A2388E5003AC1CF /* FormatterManager.swift */; };
+		0E5E65711A37FDE1007A801D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5E656F1A37FDE1007A801D /* Crashlytics.framework */; };
+		0E5E65721A37FDE1007A801D /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5E65701A37FDE1007A801D /* Fabric.framework */; };
+		0E5E65731A37FDFA007A801D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5E656F1A37FDE1007A801D /* Crashlytics.framework */; };
+		0E5E65751A37FDFA007A801D /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5E65701A37FDE1007A801D /* Fabric.framework */; };
 		0E8A84CC1A208A4E004045AB /* SwiftState.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E8A84C81A208A24004045AB /* SwiftState.framework */; };
 		0E8A84CD1A208A4E004045AB /* SwiftState.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0E8A84C81A208A24004045AB /* SwiftState.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0E8A84CF1A208A50004045AB /* SwiftTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E8A84C91A208A24004045AB /* SwiftTask.framework */; };
@@ -71,6 +75,8 @@
 		0E4A942A19F4218000E30357 /* HealthStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
 		0E5A5E211A2385C7003AC1CF /* HistoryDisplayViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryDisplayViewCell.swift; sourceTree = "<group>"; };
 		0E5A5E231A2388E5003AC1CF /* FormatterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatterManager.swift; sourceTree = "<group>"; };
+		0E5E656F1A37FDE1007A801D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		0E5E65701A37FDE1007A801D /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		0E8A84C81A208A24004045AB /* SwiftState.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftState.framework; sourceTree = "<group>"; };
 		0E8A84C91A208A24004045AB /* SwiftTask.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftTask.framework; sourceTree = "<group>"; };
 		0E920AC019F894A500AF8D15 /* YourWalker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = YourWalker.entitlements; sourceTree = "<group>"; };
@@ -87,7 +93,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E4A942919F41E6700E30357 /* HealthKit.framework in Frameworks */,
+				0E5E65751A37FDFA007A801D /* Fabric.framework in Frameworks */,
 				0E8A84CC1A208A4E004045AB /* SwiftState.framework in Frameworks */,
+				0E5E65731A37FDFA007A801D /* Crashlytics.framework in Frameworks */,
 				0E8A84CF1A208A50004045AB /* SwiftTask.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,6 +104,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E5E65711A37FDE1007A801D /* Crashlytics.framework in Frameworks */,
+				0E5E65721A37FDE1007A801D /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +186,8 @@
 			children = (
 				0E8A84C81A208A24004045AB /* SwiftState.framework */,
 				0E8A84C91A208A24004045AB /* SwiftTask.framework */,
+				0E5E656F1A37FDE1007A801D /* Crashlytics.framework */,
+				0E5E65701A37FDE1007A801D /* Fabric.framework */,
 			);
 			path = Carthage.build;
 			sourceTree = "<group>";
@@ -215,6 +227,7 @@
 				0E27069119F4157200A2D008 /* Frameworks */,
 				0E27069219F4157200A2D008 /* Resources */,
 				0E8A84CE1A208A4E004045AB /* Embed Frameworks */,
+				0E5E65661A37FD3A007A801D /* Install Fabric (Crashlystics) */,
 			);
 			buildRules = (
 			);
@@ -310,6 +323,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E5E65661A37FD3A007A801D /* Install Fabric (Crashlystics) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Install Fabric (Crashlystics)";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Carthage.build/Fabric.framework/run 5ee454bf81e4bee440881afcf8f4277a7a7cb003 3f2ac1382db84105d3589541c5c49ee5f42e929c929dbba3c7693dee7488be8d";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0E27069019F4157200A2D008 /* Sources */ = {
@@ -453,6 +483,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage.build",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = YourWalker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -472,6 +503,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage.build",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = YourWalker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -488,6 +520,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage.build",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -507,6 +540,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage.build",
 				);
 				INFOPLIST_FILE = YourWalkerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
