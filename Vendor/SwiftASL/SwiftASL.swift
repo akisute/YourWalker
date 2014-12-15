@@ -65,6 +65,7 @@ public class ASL {
     private var filterSeconds: Int64? = nil
     private var filterSender: String? = nil
     private var filterMessage: String? = nil
+    private var limit: UInt64 = UINT64_MAX
     
     /// Adds a filter by seconds from now.
     /// If multiple filters of a same kind is set, the previous filter is overridden.
@@ -84,6 +85,13 @@ public class ASL {
     /// If multiple filters of a same kind is set, the previous filter is overridden.
     public func filter(#message: String) -> ASL {
         self.filterMessage = message
+        return self
+    }
+    
+    /// Adds a filter by number of lines.
+    /// If multiple filters of a same kind is set, the previous filter is overridden.
+    public func limit(numberOfLines: UInt64) -> ASL {
+        self.limit = numberOfLines
         return self
     }
     
@@ -109,8 +117,9 @@ public class ASL {
         let response = asl_search(COpaquePointer.null(), query)
         
         var results = Array<ASLLine>()
+        var count: UInt64 = 0
         var msg: aslmsg = asl_next(response)
-        while (COpaquePointer.null() != msg) {
+        while (COpaquePointer.null() != msg && count < self.limit) {
             var entry = Dictionary<String, String>()
             var n: UInt32 = 0
             var key = asl_key(msg, n)
@@ -126,6 +135,7 @@ public class ASL {
             }
             let line = ASLLine(entry: entry)
             results.append(line)
+            count++
             msg = asl_next(response)
         }
         

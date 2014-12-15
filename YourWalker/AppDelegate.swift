@@ -33,7 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         
         NSLog("test test")
-        let logs = ASL().filter(seconds: 24*60*60).readlines()
+        NSLog("test test")
+        NSLog("test test")
+        NSLog("test test")
+        NSLog("test test")
+        let logs = ASL().filter(seconds: 24*60*60).limit(3).readlines()
         NSLog("%@", logs.description)
         
         return true
