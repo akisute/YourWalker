@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
-        Fabric.with([Crashlytics()])
+        //Fabric.with([Crashlytics()])
         
         let settings = UIUserNotificationSettings(forTypes: .Badge, categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
