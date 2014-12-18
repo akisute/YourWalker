@@ -8,6 +8,14 @@
 
 import UIKit
 
+// TODO: should be a class variable
+let __ASLTableViewCellTimestampDateFormatter: NSDateFormatter = {
+    let dateFormatter = NSDateFormatter()
+    dateFormatter.locale = NSLocale(localeIdentifier: "en_US")
+    dateFormatter.dateFormat = "HH:mm:ss"
+    return dateFormatter
+}()
+
 class __ASLTableViewCell: UITableViewCell {
     
     var timestampLabel: UILabel!
@@ -17,10 +25,10 @@ class __ASLTableViewCell: UITableViewCell {
         didSet {
             if let l = self.line {
                 self.timestampLabel.attributedText = __ASLTableViewCell.attributedStringForTimestampLabel(l)
-                self.messageLabel.text = l.message
+                self.messageLabel.attributedText = __ASLTableViewCell.attributedStringForMessageLabel(l)
             } else {
                 self.timestampLabel.attributedText = nil
-                self.messageLabel.text = nil
+                self.messageLabel.attributedText = nil
             }
         }
     }
@@ -43,7 +51,6 @@ class __ASLTableViewCell: UITableViewCell {
         self.timestampLabel.font = nil
         self.timestampLabel.numberOfLines = 1
         self.timestampLabel.textAlignment = .Right
-        self.timestampLabel.backgroundColor = UIColor.redColor()
         self.contentView.addSubview(self.timestampLabel)
         
         self.messageLabel = UILabel(frame: CGRectZero)
@@ -51,30 +58,46 @@ class __ASLTableViewCell: UITableViewCell {
         self.messageLabel.font = nil
         self.messageLabel.numberOfLines = 0
         self.messageLabel.textAlignment = .Left
-        self.messageLabel.backgroundColor = UIColor.orangeColor()
         self.contentView.addSubview(self.messageLabel)
         
         let views = ["timestampLabel": self.timestampLabel, "messageLabel": self.messageLabel]
-        self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(8)-[timestampLabel(80)]-(12)-[messageLabel]-(8)-|", options: NSLayoutFormatOptions.allZeros, metrics: nil, views: views))
+        self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(8)-[timestampLabel(60)]-(4)-[messageLabel]-(8)-|", options: NSLayoutFormatOptions.allZeros, metrics: nil, views: views))
         self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(4)-[messageLabel]-(4)-|", options: NSLayoutFormatOptions.allZeros, metrics: nil, views: views))
         self.contentView.addConstraint(NSLayoutConstraint(item: self.timestampLabel, attribute: .Top, relatedBy: .Equal, toItem: self.messageLabel, attribute: .Top, multiplier: 1.0, constant: 0))
     }
     
     class func attributedStringForTimestampLabel(line: ASLLine) -> NSAttributedString {
-        let string = NSDateFormatter.localizedStringFromDate(line.timestamp, dateStyle: .NoStyle, timeStyle: .LongStyle)
+        let string = __ASLTableViewCellTimestampDateFormatter.stringFromDate(line.timestamp)//    NSDateFormatter.localizedStringFromDate(line.timestamp, dateStyle: .NoStyle, timeStyle: .LongStyle)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .Right
+        paragraphStyle.lineBreakMode = .ByTruncatingTail
         let attributes: [NSObject:AnyObject] = [
+            NSParagraphStyleAttributeName: paragraphStyle,
             NSFontAttributeName: UIFont(name: "Courier", size: 12.0)!,
-            NSForegroundColorAttributeName: UIColor(white: 0.25, alpha: 1.0)
+            NSForegroundColorAttributeName: UIColor(white: 0.30, alpha: 1.0)
         ]
         return NSAttributedString(string: string, attributes: attributes)
     }
-//
-//    class func attributedStringForMessageLabel(line: ASLLine) -> NSAttributedString {
-//        
-//    }
+
+    class func attributedStringForMessageLabel(line: ASLLine) -> NSAttributedString {
+        let string = line.message
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .Left
+        paragraphStyle.lineBreakMode = .ByWordWrapping
+        let attributes: [NSObject:AnyObject] = [
+            NSParagraphStyleAttributeName: paragraphStyle,
+            NSFontAttributeName: UIFont(name: "Courier", size: 13.0)!,
+            NSForegroundColorAttributeName: UIColor(white: 0.03, alpha: 1.0)
+        ]
+        return NSAttributedString(string: string, attributes: attributes)
+    }
     
-    class func heightWithLine(line: ASLLine) -> CGFloat {
-        return 128.0
+    class func heightOfLine(line: ASLLine, inSize size: CGSize) -> CGFloat {
+        let marginWidth: CGFloat = 8.0 + 60.0 + 4.0 + 8.0
+        let marginHeight: CGFloat = 4.0 + 4.0
+        let s: CGSize = CGSize(width: size.width - marginWidth, height: size.height)
+        let options = NSStringDrawingOptions.UsesLineFragmentOrigin // TODO: should be .UsesFontLeading | .UsesLineFragmentOrigin
+        return self.attributedStringForMessageLabel(line).boundingRectWithSize(s, options: options, context: nil).size.height + marginHeight
     }
 }
 
@@ -87,6 +110,7 @@ class __ASLTableViewController: UITableViewController {
         self.tableView.separatorStyle = .None
         self.tableView.registerClass(__ASLTableViewCell.self, forCellReuseIdentifier: "Cell")
         
+        self.title = "Logs"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "onDoneButton:")
         
         self.lines += ASL().readlines()
@@ -102,7 +126,6 @@ class __ASLTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as __ASLTableViewCell
-        //cell.textLabel!.text = self.lines[indexPath.row].message
         cell.line = self.lines[indexPath.row]
         return cell
     }
@@ -112,7 +135,8 @@ class __ASLTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return __ASLTableViewCell.heightWithLine(self.lines[indexPath.row])
+        let size = CGSize(width: tableView.bounds.size.width, height: CGFloat.max)
+        return __ASLTableViewCell.heightOfLine(self.lines[indexPath.row], inSize: size)
     }
     
     func onDoneButton(sender: AnyObject) {
