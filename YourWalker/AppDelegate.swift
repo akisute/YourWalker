@@ -21,29 +21,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settings = UIUserNotificationSettings(forTypes: .Badge, categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         
-        HealthStore.sharedInstance.startStepCountBackgroundUpdate()
-        HealthStore.sharedInstance.setStepCountBackgroundUpdateHandler({[unowned self] complete, error in
-            if error != nil {
-                self.startUpdatingBadgeCount().then({_, errorInfo in
+        HealthStore.sharedInstance.startStepCountBackgroundUpdate().success({[unowned self] () -> () in
+            NSLog("HealthStore.sharedInstance.startStepCountBackgroundUpdate().success()")
+            HealthStore.sharedInstance.setStepCountBackgroundUpdateHandler({complete, error in
+                if let e = error {
+                    NSLog("stepCountBackgroundUpdateHandler(error: %@)", e)
                     complete()
-                })
-            } else {
-                complete()
-            }
+                } else {
+                    NSLog("stepCountBackgroundUpdateHandler()")
+                    self.startUpdatingBadgeCount().then({_, errorInfo in
+                        complete()
+                    })
+                }
+            })
         })
-        
-        NSLog("test test")
-        NSLog("test test")
-        NSLog("test test")
-        NSLog("test test")
-        NSLog("test test")
-        let logs = ASL().filter(seconds: 24*60*60).limit(3).readlines()
-        NSLog("%@", logs.description)
         
         return true
     }
     
     func applicationDidEnterBackground(application: UIApplication) {
+        NSLog("%@.%@", reflect(self).summary, __FUNCTION__)
         let identifier = application.beginBackgroundTaskWithExpirationHandler({})
         self.startUpdatingBadgeCount().then({_, errorInfo in
             application.endBackgroundTask(identifier)
@@ -51,7 +48,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func startUpdatingBadgeCount() -> HealthStoreTask {
+        NSLog("%@.%@", reflect(self).summary, __FUNCTION__)
         return HealthStore.sharedInstance.findStepCountCumulativeSumToGoalToday().success({(stepCountToGoal: Int) -> Void in
+            NSLog("HealthStore.sharedInstance.findStepCountCumulativeSumToGoalToday().success()")
             UIApplication.sharedApplication().applicationIconBadgeNumber = stepCountToGoal
         })
     }
