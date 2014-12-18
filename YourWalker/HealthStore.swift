@@ -138,7 +138,7 @@ class HealthStore {
     func startStepCountBackgroundUpdate() -> HealthStoreTask {
         let sampleType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierStepCount)
         return HealthStoreTask(promiseInitClosure: {fulfill, reject in
-            self.store.enableBackgroundDeliveryForType(sampleType, frequency: .Hourly) { success, error in
+            self.store.enableBackgroundDeliveryForType(sampleType, frequency: .Immediate) { success, error in
                 if error != nil {
                     reject(error)
                     return
