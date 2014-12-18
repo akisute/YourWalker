@@ -10,20 +10,29 @@ import UIKit
 import HealthKit
 
 class StepCountHistory {
-    let stepCount: Int
-    let startDate: NSDate
-    let endDate: NSDate
+    let stepCount: Int = 0
+    let startDate: NSDate?
+    let endDate: NSDate?
     
     init?(statistics: HKStatistics) {
         if let sum = statistics.sumQuantity() {
-            self.stepCount = Int(statistics.sumQuantity().doubleValueForUnit(HKUnit.countUnit()))
+            self.stepCount = Int(sum.doubleValueForUnit(HKUnit.countUnit()))
             self.startDate = statistics.startDate
             self.endDate = statistics.endDate
         } else {
-            self.stepCount = 0
-            self.startDate = NSDate.distantPast() as NSDate
-            self.endDate = NSDate.distantFuture() as NSDate
             return nil
+        }
+    }
+    
+    var displayDate: NSDate {
+        get {
+            if let d = self.startDate {
+                return d;
+            } else if let d = self.endDate {
+                return d;
+            } else {
+                return NSDate()
+            }
         }
     }
 }

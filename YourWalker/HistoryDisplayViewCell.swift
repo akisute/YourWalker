@@ -30,7 +30,7 @@ class HistoryDisplayViewCell: UITableViewCell {
     private func updateOutlets() {
         if let value = self.stepCountHistory {
             self.stepCountLabel.text = FormatterManager.sharedInstance.numberFormatter_Decimal.stringFromNumber(value.stepCount)
-            self.dateLabel.text = FormatterManager.sharedInstance.dateFormatter_MMDD.stringFromDate(value.startDate)
+            self.dateLabel.text = FormatterManager.sharedInstance.dateFormatter_MMDD.stringFromDate(value.displayDate)
         } else {
             self.stepCountLabel.text = nil
             self.dateLabel.text = nil

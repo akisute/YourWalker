@@ -127,7 +127,7 @@ class HealthStore {
             return Task.some(tasks)
         }).success({(results: [StepCountHistory]) -> HealthStoreStepCountHistoryListTask in
             let value = sorted(results, {(a: StepCountHistory, b: StepCountHistory) -> Bool in
-                return a.startDate.laterDate(b.startDate) == a.startDate
+                return a.displayDate.laterDate(b.displayDate) == a.displayDate
             })
             return HealthStoreStepCountHistoryListTask(value: value)
         })
