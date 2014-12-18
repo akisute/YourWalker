@@ -30,7 +30,8 @@
 		0EE4AA541A073446006C80B8 /* HistoryDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4AA531A073446006C80B8 /* HistoryDisplayViewController.swift */; };
 		0EE4AA561A073456006C80B8 /* HistoryDisplayViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EE4AA551A073456006C80B8 /* HistoryDisplayViewController.storyboard */; };
 		0EE4AA581A073B63006C80B8 /* StepCountHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4AA571A073B63006C80B8 /* StepCountHistory.swift */; };
-		C5C770311A3EDA9400C67A8F /* SwiftASL.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C770301A3EDA9400C67A8F /* SwiftASL.swift */; };
+		C55E990F1A42A04E0003F659 /* ASLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55E990E1A42A04E0003F659 /* ASLViewController.swift */; };
+		C5C770311A3EDA9400C67A8F /* ASL.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C770301A3EDA9400C67A8F /* ASL.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,7 +84,8 @@
 		0EE4AA531A073446006C80B8 /* HistoryDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryDisplayViewController.swift; sourceTree = "<group>"; };
 		0EE4AA551A073456006C80B8 /* HistoryDisplayViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HistoryDisplayViewController.storyboard; sourceTree = "<group>"; };
 		0EE4AA571A073B63006C80B8 /* StepCountHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepCountHistory.swift; sourceTree = "<group>"; };
-		C5C770301A3EDA9400C67A8F /* SwiftASL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftASL.swift; sourceTree = "<group>"; };
+		C55E990E1A42A04E0003F659 /* ASLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASLViewController.swift; sourceTree = "<group>"; };
+		C5C770301A3EDA9400C67A8F /* ASL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASL.swift; sourceTree = "<group>"; };
 		C5C770321A3EDCA200C67A8F /* Objc-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Objc-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -211,7 +213,8 @@
 		C5C7702F1A3EDA6C00C67A8F /* SwiftASL */ = {
 			isa = PBXGroup;
 			children = (
-				C5C770301A3EDA9400C67A8F /* SwiftASL.swift */,
+				C5C770301A3EDA9400C67A8F /* ASL.swift */,
+				C55E990E1A42A04E0003F659 /* ASLViewController.swift */,
 			);
 			path = SwiftASL;
 			sourceTree = "<group>";
@@ -347,11 +350,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E5A5E241A2388E5003AC1CF /* FormatterManager.swift in Sources */,
+				C55E990F1A42A04E0003F659 /* ASLViewController.swift in Sources */,
 				0E2706BA19F417D500A2D008 /* CountDisplayViewController.swift in Sources */,
 				0E27069A19F4157200A2D008 /* AppDelegate.swift in Sources */,
 				0EE4AA581A073B63006C80B8 /* StepCountHistory.swift in Sources */,
 				0E2706BC19F417FB00A2D008 /* RootViewController.swift in Sources */,
-				C5C770311A3EDA9400C67A8F /* SwiftASL.swift in Sources */,
+				C5C770311A3EDA9400C67A8F /* ASL.swift in Sources */,
 				0EE4AA541A073446006C80B8 /* HistoryDisplayViewController.swift in Sources */,
 				0E4A942B19F4218000E30357 /* HealthStore.swift in Sources */,
 				0E5A5E221A2385C7003AC1CF /* HistoryDisplayViewCell.swift in Sources */,
