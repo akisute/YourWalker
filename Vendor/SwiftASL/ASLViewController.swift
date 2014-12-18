@@ -27,12 +27,16 @@ private class __ASLTableViewCell: UITableViewCell {
 
 class __ASLTableViewController: UITableViewController {
     
+    var lines: [ASLLine] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.separatorStyle = .None
         self.tableView.registerClass(__ASLTableViewCell.self, forCellReuseIdentifier: "Cell")
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "onDoneButton:")
+        
+        self.lines += ASL().readlines()
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -40,12 +44,12 @@ class __ASLTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return self.lines.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as __ASLTableViewCell
-        cell.textLabel!.text = "abesi"
+        cell.textLabel!.text = self.lines[indexPath.row].message
         return cell
     }
     

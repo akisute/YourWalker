@@ -153,5 +153,10 @@ public class ASL {
         // TODO: Implement this
         handler(ASLLine(pid: 1, timestamp: NSDate(), sender: "", message: ""))
     }
+    
+    /// Cancels currently running read task.
+    public func cancel() {
+        
+    }
 }
 
