@@ -10,10 +10,58 @@ import UIKit
 import Fabric
 import Crashlytics
 
+class DebugShakeWindow: UIWindow {
+    
+    var shaking: Bool = false
+    weak var presentingDebugViewController: UIViewController?
+    
+    var shouldPresentDebugViewController: Bool {
+        get {
+            return self.shaking && UIApplication.sharedApplication().applicationState == .Active;
+        }
+    }
+    
+    func presentDebugViewController() {
+        var visibleViewController = self.rootViewController
+        while (visibleViewController?.presentedViewController != nil) {
+            visibleViewController = visibleViewController?.presentedViewController
+        }
+        
+        // Prevent double-presenting the view controller.
+        if self.presentingDebugViewController == nil {
+            let viewController = ASLViewController()
+            visibleViewController?.presentViewController(viewController, animated: true, completion:nil)
+            self.presentingDebugViewController = viewController
+        }
+    }
+    
+    override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent) {
+        if motion == .MotionShake {
+            self.shaking = true
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(400 * NSEC_PER_MSEC)), dispatch_get_main_queue(), {
+                if (self.shouldPresentDebugViewController) {
+                    self.presentDebugViewController()
+                }
+            });
+        }
+        super.motionBegan(motion, withEvent: event)
+    }
+    
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
+        if motion == .MotionShake {
+            self.shaking = false
+        }
+        super.motionEnded(motion, withEvent: event)
+    }
+    
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
+    lazy var window: UIWindow = {
+        return DebugShakeWindow(frame: UIScreen.mainScreen().bounds)
+    }()
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         Fabric.with([Crashlytics()])
