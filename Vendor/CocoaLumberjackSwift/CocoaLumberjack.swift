@@ -2,6 +2,12 @@
 //  Updated by Masashi Ono (akisute) on 26/12/14.
 //  
 //  Tested on CocoaLumberjack 2.0.0 rc
+//  
+//  CocoaLumberjack now officially supports Swift (https://github.com/CocoaLumberjack/CocoaLumberjack/blob/2.0.0-rc/Classes/CocoaLumberjack.swift),
+//  but both the current CocoaPods (0.35) with 2.2.0 rc doesn't support Swift yet.
+//  We got to workaround this by installing CocoaLumberjack.swift manually.
+//  I recommend you to use the official CocoaLumberjack.swift instead of this hack.
+
 
 // Bitmasks are a bit tricky in swift
 // See http://natecook.com/blog/2014/07/swift-options-bitmask-generator/
