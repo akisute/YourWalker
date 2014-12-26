@@ -19,18 +19,16 @@
 		0E4A942B19F4218000E30357 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4A942A19F4218000E30357 /* HealthStore.swift */; };
 		0E5A5E221A2385C7003AC1CF /* HistoryDisplayViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A5E211A2385C7003AC1CF /* HistoryDisplayViewCell.swift */; };
 		0E5A5E241A2388E5003AC1CF /* FormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A5E231A2388E5003AC1CF /* FormatterManager.swift */; };
-		0E5E65711A37FDE1007A801D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5E656F1A37FDE1007A801D /* Crashlytics.framework */; };
-		0E5E65721A37FDE1007A801D /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5E65701A37FDE1007A801D /* Fabric.framework */; };
-		0E5E65731A37FDFA007A801D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5E656F1A37FDE1007A801D /* Crashlytics.framework */; };
-		0E5E65751A37FDFA007A801D /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5E65701A37FDE1007A801D /* Fabric.framework */; };
-		0E8A84CC1A208A4E004045AB /* SwiftState.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E8A84C81A208A24004045AB /* SwiftState.framework */; };
-		0E8A84CD1A208A4E004045AB /* SwiftState.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0E8A84C81A208A24004045AB /* SwiftState.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0E8A84CF1A208A50004045AB /* SwiftTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E8A84C91A208A24004045AB /* SwiftTask.framework */; };
-		0E8A84D01A208A50004045AB /* SwiftTask.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0E8A84C91A208A24004045AB /* SwiftTask.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0EE4AA541A073446006C80B8 /* HistoryDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4AA531A073446006C80B8 /* HistoryDisplayViewController.swift */; };
 		0EE4AA561A073456006C80B8 /* HistoryDisplayViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EE4AA551A073456006C80B8 /* HistoryDisplayViewController.storyboard */; };
 		0EE4AA581A073B63006C80B8 /* StepCountHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4AA571A073B63006C80B8 /* StepCountHistory.swift */; };
 		C55E990F1A42A04E0003F659 /* ASLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55E990E1A42A04E0003F659 /* ASLViewController.swift */; };
+		C594B0D61A4D66D3003F51CA /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C594B0D41A4D66D3003F51CA /* Crashlytics.framework */; };
+		C594B0D71A4D66D3003F51CA /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C594B0D51A4D66D3003F51CA /* Fabric.framework */; };
+		C594B0DA1A4D671E003F51CA /* SwiftState.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C594B0D81A4D671E003F51CA /* SwiftState.framework */; };
+		C594B0DB1A4D671E003F51CA /* SwiftState.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C594B0D81A4D671E003F51CA /* SwiftState.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C594B0DC1A4D671E003F51CA /* SwiftTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C594B0D91A4D671E003F51CA /* SwiftTask.framework */; };
+		C594B0DD1A4D671E003F51CA /* SwiftTask.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C594B0D91A4D671E003F51CA /* SwiftTask.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C5C770311A3EDA9400C67A8F /* ASL.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C770301A3EDA9400C67A8F /* ASL.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,8 +49,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0E8A84CD1A208A4E004045AB /* SwiftState.framework in Embed Frameworks */,
-				0E8A84D01A208A50004045AB /* SwiftTask.framework in Embed Frameworks */,
+				C594B0DB1A4D671E003F51CA /* SwiftState.framework in Embed Frameworks */,
+				C594B0DD1A4D671E003F51CA /* SwiftTask.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,15 +74,15 @@
 		0E4A942A19F4218000E30357 /* HealthStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
 		0E5A5E211A2385C7003AC1CF /* HistoryDisplayViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryDisplayViewCell.swift; sourceTree = "<group>"; };
 		0E5A5E231A2388E5003AC1CF /* FormatterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatterManager.swift; sourceTree = "<group>"; };
-		0E5E656F1A37FDE1007A801D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		0E5E65701A37FDE1007A801D /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
-		0E8A84C81A208A24004045AB /* SwiftState.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftState.framework; sourceTree = "<group>"; };
-		0E8A84C91A208A24004045AB /* SwiftTask.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftTask.framework; sourceTree = "<group>"; };
 		0E920AC019F894A500AF8D15 /* YourWalker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = YourWalker.entitlements; sourceTree = "<group>"; };
 		0EE4AA531A073446006C80B8 /* HistoryDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryDisplayViewController.swift; sourceTree = "<group>"; };
 		0EE4AA551A073456006C80B8 /* HistoryDisplayViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HistoryDisplayViewController.storyboard; sourceTree = "<group>"; };
 		0EE4AA571A073B63006C80B8 /* StepCountHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepCountHistory.swift; sourceTree = "<group>"; };
 		C55E990E1A42A04E0003F659 /* ASLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASLViewController.swift; sourceTree = "<group>"; };
+		C594B0D41A4D66D3003F51CA /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		C594B0D51A4D66D3003F51CA /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		C594B0D81A4D671E003F51CA /* SwiftState.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftState.framework; path = Carthage/Build/iOS/SwiftState.framework; sourceTree = "<group>"; };
+		C594B0D91A4D671E003F51CA /* SwiftTask.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftTask.framework; path = Carthage/Build/iOS/SwiftTask.framework; sourceTree = "<group>"; };
 		C5C770301A3EDA9400C67A8F /* ASL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASL.swift; sourceTree = "<group>"; };
 		C5C770321A3EDCA200C67A8F /* Objc-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Objc-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,10 +93,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E4A942919F41E6700E30357 /* HealthKit.framework in Frameworks */,
-				0E5E65751A37FDFA007A801D /* Fabric.framework in Frameworks */,
-				0E8A84CC1A208A4E004045AB /* SwiftState.framework in Frameworks */,
-				0E5E65731A37FDFA007A801D /* Crashlytics.framework in Frameworks */,
-				0E8A84CF1A208A50004045AB /* SwiftTask.framework in Frameworks */,
+				C594B0D61A4D66D3003F51CA /* Crashlytics.framework in Frameworks */,
+				C594B0DA1A4D671E003F51CA /* SwiftState.framework in Frameworks */,
+				C594B0DC1A4D671E003F51CA /* SwiftTask.framework in Frameworks */,
+				C594B0D71A4D66D3003F51CA /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,8 +104,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E5E65711A37FDE1007A801D /* Crashlytics.framework in Frameworks */,
-				0E5E65721A37FDE1007A801D /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,7 +116,6 @@
 				0E27069619F4157200A2D008 /* YourWalker */,
 				0E2706AC19F4157200A2D008 /* YourWalkerTests */,
 				C5C7702E1A3EDA6C00C67A8F /* Vendor */,
-				0E8A84C71A208A24004045AB /* Carthage.build */,
 				0E27069519F4157200A2D008 /* Products */,
 				AFF88857C4CA94FAC37758DD /* Frameworks */,
 			);
@@ -183,28 +178,29 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		0E8A84C71A208A24004045AB /* Carthage.build */ = {
-			isa = PBXGroup;
-			children = (
-				0E8A84C81A208A24004045AB /* SwiftState.framework */,
-				0E8A84C91A208A24004045AB /* SwiftTask.framework */,
-				0E5E656F1A37FDE1007A801D /* Crashlytics.framework */,
-				0E5E65701A37FDE1007A801D /* Fabric.framework */,
-			);
-			path = Carthage.build;
-			sourceTree = "<group>";
-		};
 		AFF88857C4CA94FAC37758DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C594B0D81A4D671E003F51CA /* SwiftState.framework */,
+				C594B0D91A4D671E003F51CA /* SwiftTask.framework */,
 				0E4A942819F41E6700E30357 /* HealthKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C594B0D31A4D66D3003F51CA /* Fabric */ = {
+			isa = PBXGroup;
+			children = (
+				C594B0D41A4D66D3003F51CA /* Crashlytics.framework */,
+				C594B0D51A4D66D3003F51CA /* Fabric.framework */,
+			);
+			path = Fabric;
+			sourceTree = "<group>";
+		};
 		C5C7702E1A3EDA6C00C67A8F /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				C594B0D31A4D66D3003F51CA /* Fabric */,
 				C5C7702F1A3EDA6C00C67A8F /* SwiftASL */,
 			);
 			path = Vendor;
@@ -231,6 +227,7 @@
 				0E27069219F4157200A2D008 /* Resources */,
 				0E8A84CE1A208A4E004045AB /* Embed Frameworks */,
 				0E5E65661A37FD3A007A801D /* Install Fabric (Crashlystics) */,
+				C594B0DE1A4D674C003F51CA /* Workaround Carthage Problem */,
 			);
 			buildRules = (
 			);
@@ -341,6 +338,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "#./Carthage.build/Fabric.framework/run 5ee454bf81e4bee440881afcf8f4277a7a7cb003 3f2ac1382db84105d3589541c5c49ee5f42e929c929dbba3c7693dee7488be8d";
+		};
+		C594B0DE1A4D674C003F51CA /* Workaround Carthage Problem */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftState.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftTask.framework",
+			);
+			name = "Workaround Carthage Problem";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -486,8 +499,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage.build",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Vendor/Fabric",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = YourWalker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -506,8 +520,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage.build",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Vendor/Fabric",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = YourWalker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -524,7 +539,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage.build",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -544,7 +558,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage.build",
 				);
 				INFOPLIST_FILE = YourWalkerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

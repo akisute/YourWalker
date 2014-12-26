@@ -23,5 +23,6 @@ Podfile.lock
 *.xcworkspace
 
 #Carthage
-Carthage.checkout
+Carthage/Build
+Carthage/Checkouts
 
