@@ -2,8 +2,10 @@
 A sample app to use pedometer.
 
 ## Requirements
-This project is using Carthage for framework managements. All frameworks built by Carthage are located at `Carthage.build` directory, then they are referenced from the project file.
+This project uses following build systems:
 
-Some key frameworks:
+- Cocoapods
+  - For traditional Objective-C libraries
+- Carthage
+  - For Swift dynamic frameworks
 
-- SwiftPromise
