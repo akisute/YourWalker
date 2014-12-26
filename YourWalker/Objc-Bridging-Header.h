@@ -9,6 +9,7 @@
 #ifndef YourWalker_Objc_Bridging_Header_h
 #define YourWalker_Objc_Bridging_Header_h
 
+// Required for SwiftASL
 #include <asl.h>
 
 #endif
