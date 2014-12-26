@@ -66,6 +66,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         Fabric.with([Crashlytics()])
         
+        DDLog.addLogger(DDASLLogger.sharedInstance()) // to /var/log of the device. Can view from Xcode Organizer.
+        DDLog.addLogger(DDTTYLogger.sharedInstance()) // to Terminal of Xcode.
+        let fileLogger = DDFileLogger()               // to ~/Library/Caches of the device.
+        fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
+        fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
+        DDLog.addLogger(fileLogger)
+        DDLog.logLevel = LogLevel.Debug
+        DDLog.logInfo("Hello, CocoaLumberjack!")
+        DDLog.logDebug(String(format: "Current time is: %@", NSDate()))
+        
         let settings = UIUserNotificationSettings(forTypes: .Badge, categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         

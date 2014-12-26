@@ -22,6 +22,7 @@
 		0EE4AA541A073446006C80B8 /* HistoryDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4AA531A073446006C80B8 /* HistoryDisplayViewController.swift */; };
 		0EE4AA561A073456006C80B8 /* HistoryDisplayViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EE4AA551A073456006C80B8 /* HistoryDisplayViewController.storyboard */; };
 		0EE4AA581A073B63006C80B8 /* StepCountHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4AA571A073B63006C80B8 /* StepCountHistory.swift */; };
+		2D51E36A9A0478386F503F13 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B927012B6316C7F6FC8466BA /* libPods.a */; };
 		C55E990F1A42A04E0003F659 /* ASLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55E990E1A42A04E0003F659 /* ASLViewController.swift */; };
 		C594B0D61A4D66D3003F51CA /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C594B0D41A4D66D3003F51CA /* Crashlytics.framework */; };
 		C594B0D71A4D66D3003F51CA /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C594B0D51A4D66D3003F51CA /* Fabric.framework */; };
@@ -29,6 +30,7 @@
 		C594B0DB1A4D671E003F51CA /* SwiftState.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C594B0D81A4D671E003F51CA /* SwiftState.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C594B0DC1A4D671E003F51CA /* SwiftTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C594B0D91A4D671E003F51CA /* SwiftTask.framework */; };
 		C594B0DD1A4D671E003F51CA /* SwiftTask.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C594B0D91A4D671E003F51CA /* SwiftTask.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C594B0E11A4D6D7C003F51CA /* CocoaLumberjack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C594B0E01A4D6D7C003F51CA /* CocoaLumberjack.swift */; };
 		C5C770311A3EDA9400C67A8F /* ASL.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C770301A3EDA9400C67A8F /* ASL.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,13 +80,17 @@
 		0EE4AA531A073446006C80B8 /* HistoryDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryDisplayViewController.swift; sourceTree = "<group>"; };
 		0EE4AA551A073456006C80B8 /* HistoryDisplayViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HistoryDisplayViewController.storyboard; sourceTree = "<group>"; };
 		0EE4AA571A073B63006C80B8 /* StepCountHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepCountHistory.swift; sourceTree = "<group>"; };
+		69F79ED23A62C7D532CCF7E1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		B927012B6316C7F6FC8466BA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C55E990E1A42A04E0003F659 /* ASLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASLViewController.swift; sourceTree = "<group>"; };
 		C594B0D41A4D66D3003F51CA /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		C594B0D51A4D66D3003F51CA /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		C594B0D81A4D671E003F51CA /* SwiftState.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftState.framework; path = Carthage/Build/iOS/SwiftState.framework; sourceTree = "<group>"; };
 		C594B0D91A4D671E003F51CA /* SwiftTask.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftTask.framework; path = Carthage/Build/iOS/SwiftTask.framework; sourceTree = "<group>"; };
+		C594B0E01A4D6D7C003F51CA /* CocoaLumberjack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocoaLumberjack.swift; sourceTree = "<group>"; };
 		C5C770301A3EDA9400C67A8F /* ASL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASL.swift; sourceTree = "<group>"; };
 		C5C770321A3EDCA200C67A8F /* Objc-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Objc-Bridging-Header.h"; sourceTree = "<group>"; };
+		E76BF07B4D212252A2951D2F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,7 @@
 				C594B0DA1A4D671E003F51CA /* SwiftState.framework in Frameworks */,
 				C594B0DC1A4D671E003F51CA /* SwiftTask.framework in Frameworks */,
 				C594B0D71A4D66D3003F51CA /* Fabric.framework in Frameworks */,
+				2D51E36A9A0478386F503F13 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +125,7 @@
 				C5C7702E1A3EDA6C00C67A8F /* Vendor */,
 				0E27069519F4157200A2D008 /* Products */,
 				AFF88857C4CA94FAC37758DD /* Frameworks */,
+				DFA82F26F6735DFAB5C54657 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -184,6 +192,7 @@
 				C594B0D81A4D671E003F51CA /* SwiftState.framework */,
 				C594B0D91A4D671E003F51CA /* SwiftTask.framework */,
 				0E4A942819F41E6700E30357 /* HealthKit.framework */,
+				B927012B6316C7F6FC8466BA /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -197,10 +206,19 @@
 			path = Fabric;
 			sourceTree = "<group>";
 		};
+		C594B0DF1A4D6D7C003F51CA /* CocoaLumberjackSwift */ = {
+			isa = PBXGroup;
+			children = (
+				C594B0E01A4D6D7C003F51CA /* CocoaLumberjack.swift */,
+			);
+			path = CocoaLumberjackSwift;
+			sourceTree = "<group>";
+		};
 		C5C7702E1A3EDA6C00C67A8F /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
 				C594B0D31A4D66D3003F51CA /* Fabric */,
+				C594B0DF1A4D6D7C003F51CA /* CocoaLumberjackSwift */,
 				C5C7702F1A3EDA6C00C67A8F /* SwiftASL */,
 			);
 			path = Vendor;
@@ -215,6 +233,15 @@
 			path = SwiftASL;
 			sourceTree = "<group>";
 		};
+		DFA82F26F6735DFAB5C54657 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E76BF07B4D212252A2951D2F /* Pods.debug.xcconfig */,
+				69F79ED23A62C7D532CCF7E1 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -222,12 +249,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0E2706B319F4157200A2D008 /* Build configuration list for PBXNativeTarget "YourWalker" */;
 			buildPhases = (
+				B748E2B0C08EF96FA448CEEF /* Check Pods Manifest.lock */,
 				0E27069019F4157200A2D008 /* Sources */,
 				0E27069119F4157200A2D008 /* Frameworks */,
 				0E27069219F4157200A2D008 /* Resources */,
 				0E8A84CE1A208A4E004045AB /* Embed Frameworks */,
 				0E5E65661A37FD3A007A801D /* Install Fabric (Crashlystics) */,
 				C594B0DE1A4D674C003F51CA /* Workaround Carthage Problem */,
+				A00677C19538DFA6112E4A8B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -339,6 +368,36 @@
 			shellPath = /bin/sh;
 			shellScript = "#./Carthage.build/Fabric.framework/run 5ee454bf81e4bee440881afcf8f4277a7a7cb003 3f2ac1382db84105d3589541c5c49ee5f42e929c929dbba3c7693dee7488be8d";
 		};
+		A00677C19538DFA6112E4A8B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B748E2B0C08EF96FA448CEEF /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		C594B0DE1A4D674C003F51CA /* Workaround Carthage Problem */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -370,6 +429,7 @@
 				0E2706BC19F417FB00A2D008 /* RootViewController.swift in Sources */,
 				C5C770311A3EDA9400C67A8F /* ASL.swift in Sources */,
 				0EE4AA541A073446006C80B8 /* HistoryDisplayViewController.swift in Sources */,
+				C594B0E11A4D6D7C003F51CA /* CocoaLumberjack.swift in Sources */,
 				0E4A942B19F4218000E30357 /* HealthStore.swift in Sources */,
 				0E5A5E221A2385C7003AC1CF /* HistoryDisplayViewCell.swift in Sources */,
 			);
@@ -492,6 +552,7 @@
 		};
 		0E2706B419F4157200A2D008 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E76BF07B4D212252A2951D2F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = YourWalker/YourWalker.entitlements;
@@ -513,6 +574,7 @@
 		};
 		0E2706B519F4157200A2D008 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69F79ED23A62C7D532CCF7E1 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = YourWalker/YourWalker.entitlements;
@@ -534,6 +596,7 @@
 		};
 		0E2706B719F4157200A2D008 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E76BF07B4D212252A2951D2F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -553,6 +616,7 @@
 		};
 		0E2706B819F4157200A2D008 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69F79ED23A62C7D532CCF7E1 /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
