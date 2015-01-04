@@ -11,6 +11,8 @@
 
 #import <CocoaLumberjack/CocoaLumberjack.h>
 #import <CocoaLumberjack/DDMultiFormatter.h>
+#import <LogglyLogger-CocoaLumberjack/LogglyLogger.h>
+#import <LogglyLogger-CocoaLumberjack/LogglyFormatter.h>
 
 // Required for SwiftASL
 #include <asl.h>

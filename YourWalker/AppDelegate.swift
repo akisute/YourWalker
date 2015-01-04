@@ -68,10 +68,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         DDLog.addLogger(DDASLLogger.sharedInstance()) // to /var/log of the device. Can view from Xcode Organizer.
         DDLog.addLogger(DDTTYLogger.sharedInstance()) // to Terminal of Xcode.
-        let fileLogger = DDFileLogger()               // to ~/Library/Caches of the device.
-        fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
-        fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
-        DDLog.addLogger(fileLogger)
+        let logglyLogger = LogglyLogger()             // to Loggly.com
+        logglyLogger.logFormatter = LogglyFormatter()
+        logglyLogger.logglyKey = "e957bba5-916c-49d0-abc1-13e645b193de"
+        logglyLogger.saveInterval = 600;
+        DDLog.addLogger(logglyLogger)
         
         defaultDebugLevel = DDLogLevel.Debug
         DDLogInfo("Hello, CocoaLumberjack!")
