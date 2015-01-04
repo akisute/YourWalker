@@ -10,6 +10,7 @@
 #define YourWalker_Objc_Bridging_Header_h
 
 #import <CocoaLumberjack/CocoaLumberjack.h>
+#import <CocoaLumberjack/DDMultiFormatter.h>
 
 // Required for SwiftASL
 #include <asl.h>

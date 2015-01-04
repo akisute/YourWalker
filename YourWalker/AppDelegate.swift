@@ -72,9 +72,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
         fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
         DDLog.addLogger(fileLogger)
-        DDLog.logLevel = LogLevel.Debug
-        DDLog.logInfo("Hello, CocoaLumberjack!")
-        DDLog.logDebug(String(format: "Current time is: %@", NSDate()))
+        
+        defaultDebugLevel = DDLogLevel.Debug
+        DDLogInfo("Hello, CocoaLumberjack!")
+        DDLogDebug("Current time is: %@", args: NSDate())
         
         let settings = UIUserNotificationSettings(forTypes: .Badge, categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
